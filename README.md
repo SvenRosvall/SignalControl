@@ -31,6 +31,16 @@ The ```loop()``` function must call the ```update()``` method of each object.
 
 ### 2 Aspect Signal Controlled by a Button.
 
+This first example shows a 2 aspect signal (only a red and a green light)
+that is controlled by a push button connected to pin 2. 
+Press the push button to change the aspect of the signal.
+This uses the ```SlowLight``` class that changes the LED on and off 
+softly by dimming the light.
+
+The button can be replaced with a sensor on the layout that indicates
+if the next block of track after the signal is free to enter, or
+that a point (turnout) is set against the track with the signal. 
+
 ```
 #include "Signal.h"
 #include "DigitalInput.h"
@@ -51,24 +61,21 @@ void loop()
   signal.update();
 }
 ```
-Here we have a button connected to pin 2.
-This is an input that provides a digital input (on or off).
-
 The green LED is connected to pin 3 and the red LED is connected to pin 5.
 These pins are PWM (Pulse Width Modulation) to support dimming of the LEDs.
 
 The signal is declared and set up with the button and the two light objects.
 
-No additional setup is needed and the ```loop()``` function is responsible
-for updating the button and signal objects. 
+No additional setup is needed and the ```loop()``` function is only
+responsible for updating the button and signal objects. 
 The Light objects do not need to be updated. 
 They are updated by the signal object they belong to.
 
 **TODO**
 
-Describe examples:
-1) 2 aspect with a button input.
+Describe more examples:
 1) 2 aspect with track occupation input.
+1) Two signals controlling tracks that join at a point (turnout).
 
 Note: Need a 2 aspect signal that can take a digital input and a distance input.
 Or should we convert between these inputs?
