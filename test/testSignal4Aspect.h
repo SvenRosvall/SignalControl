@@ -1,0 +1,1 @@
+void testSignal4Aspect();
