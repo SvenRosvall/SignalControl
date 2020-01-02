@@ -22,8 +22,10 @@ testAll : testAll.o \
 	testDistanceWithCondition.o \
 	testPinInput.o \
 	testInvertInput.o \
+	testDistanceToDigitalInput.o \
 	ArduinoMock.o \
-	TestTools.o
+	TestTools.o \
+	sketchSignal2AspectWithButton.o
 
 depend :
 	$(CC) -MM $(CPPFLAGS) *.cpp > dependencies

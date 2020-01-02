@@ -8,7 +8,7 @@ public:
     this->inputValue = value;
   }
 
-  virtual bool get()
+  virtual bool get() const
   {
     return inputValue;
   }

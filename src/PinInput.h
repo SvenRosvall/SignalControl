@@ -11,7 +11,7 @@ public:
     pinMode(inputPin, INPUT_PULLUP);
   }
 
-  virtual bool get()
+  virtual bool get() const
   {
     return digitalRead(inputPin) == HIGH;
   }

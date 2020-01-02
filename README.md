@@ -42,11 +42,11 @@ if the next block of track after the signal is free to enter, or
 that a point (turnout) is set against the track with the signal. 
 
 ```
-#include "Signal.h"
-#include "DigitalInput.h"
+#include "Signal2Aspect.h"
+#include "PinInput.h"
 #include "SlowLight.h"
 
-DigitalInput button(2);
+PinInput button(2);
 
 SlowLight greenLight(3);
 SlowLight redLight(5);
@@ -57,7 +57,6 @@ void setup()
 
 void loop()
 {
-  button.update();
   signal.update();
 }
 ```

@@ -10,6 +10,7 @@
 #include "testDistanceTimer.h"
 #include "testDistanceWithCondition.h"
 #include "testPinInput.h"
+#include "testDistanceToDigitalInput.h"
 
 std::map<std::string, void (*)()> suites = {
   {"Arduino", testArduino},
@@ -22,7 +23,8 @@ std::map<std::string, void (*)()> suites = {
   {"SlowLight", testSlowLight},
   {"FastLight", testFastLight},
   {"BlinkingLight", testBlinkingLight},
-  {"PinInput", testPinInput}
+  {"PinInput", testPinInput},
+  {"DistanceToDigitalInput", testDistanceToDigitalInput}
 };
 
 int main(int argc, const char * const * argv)

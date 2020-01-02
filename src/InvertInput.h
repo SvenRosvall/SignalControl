@@ -13,7 +13,7 @@ public:
   {
   }
 
-  virtual bool get()
+  virtual bool get() const
   {
     return !input.get();
   }

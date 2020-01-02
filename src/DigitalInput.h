@@ -4,7 +4,7 @@
 class DigitalInput
 {
 public:
-  virtual bool get() = 0;
+  virtual bool get() const = 0;
 };
 
 #endif
