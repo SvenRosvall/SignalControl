@@ -27,7 +27,9 @@ testAll : testAll.o \
 	TestTools.o
 
 examples: sketchSignal2AspectWithButton.o \
-	sketchSignal3AspectWithDistanceTimer.o
+	sketchSignal3AspectWithDistanceTimer.o \
+	sketchTwoIndependentSignal3Aspect.o \
+	sketchTwoSignal3AspectJoiningPoint.o
 
 depend :
 	$(CC) -MM $(CPPFLAGS) *.cpp > dependencies

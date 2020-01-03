@@ -70,16 +70,43 @@ responsible for updating the button and signal objects.
 The Light objects do not need to be updated. 
 They are updated by the signal object they belong to.
 
-**TODO**
+[Example Code](examples/Signal2AspectWithButton/signal2aspect_with_button.ino)
 
-Describe more examples:
-1) 2 aspect with track occupation input.
-1) Two signals controlling tracks that join at a point (turnout).
+## 3 Aspect Signal controlled by BlockDistanceInput.
 
-Note: Need a 2 aspect signal that can take a digital input and a distance input.
-Or should we convert between these inputs?
+Here we use a signal with 3 aspects (Red, Yellow, Green) that show oncoming
+trains if
+ * the next track block is occupied, in which case the signal shows red.
+ * the next track block is free, but the following block is occupied.
+   In this case the signal shows yellow.
+ * the next two track blocks are free, in which case the signal shows green.
+ 
+Example TODO.
 
-**TODO** 
+## 3 Aspect Signal controlled by a DistanceTimer
 
-Get rid of initial state of Light classes. 
-Use default if required.
+Here we use a signal with 3 aspects and we introduce
+a DistanceTimer class that is triggered by a track occupancy sensor on pin 2
+and uses a timer to decide how far away the train is, and thus what 
+colour the signal shall show.
+ 
+[Example Code](examples/Signal3AspectWithDistanceTimer/Signal3Aspect_with_DistanceTimer.ino)
+
+## Two independent 3 Aspect Signals
+
+This example shows how a single Arduino can control two signals independently.
+Here we use the Signal3Aspect class with the DistanceTimer as above.
+
+[Example Code](examples/TwoIndependentSignal3Aspect/two_independent_Signal3Aspect.ino)
+
+## Two 3 Aspect Signals controlling tracks that join a point (turnout)
+
+Here we have two tracks that join at a point (turnout). 
+The two signals control the approach to the point, which means that the
+signal on the track that the point is set against must show red (danger).
+We have one input from the point that indicates which way it is set.
+
+We also have a track occupancy detector on the other side of point that
+is used by the DistanceTimer.
+
+[Example Code](examples/TwoSignal3AspectJoiningPoint/two_Signal3Aspect_joining_point.ino)
