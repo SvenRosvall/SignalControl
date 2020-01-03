@@ -1,6 +1,6 @@
-all: test signal.ino.o
+all: test
 
-test: run-testAll
+test: run-testAll signal.ino.o examples
 	@: do nothing
 
 run-%: %
@@ -24,8 +24,10 @@ testAll : testAll.o \
 	testInvertInput.o \
 	testDistanceToDigitalInput.o \
 	ArduinoMock.o \
-	TestTools.o \
-	sketchSignal2AspectWithButton.o
+	TestTools.o
+
+examples: sketchSignal2AspectWithButton.o \
+	sketchSignal3AspectWithDistanceTimer.o
 
 depend :
 	$(CC) -MM $(CPPFLAGS) *.cpp > dependencies
