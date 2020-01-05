@@ -19,6 +19,7 @@ testAll : testAll.o \
 	testBlinkingLight.o \
 	testArduino.o \
 	testDistanceTimer.o \
+	testBlockDistanceInput.o \
 	testDistanceWithCondition.o \
 	testPinInput.o \
 	testInvertInput.o \
@@ -28,6 +29,7 @@ testAll : testAll.o \
 
 examples: sketchSignal2AspectWithButton.o \
 	sketchSignal3AspectWithDistanceTimer.o \
+	sketchSignal3AspectWithBlockDistanceInput.o \
 	sketchTwoIndependentSignal3Aspect.o \
 	sketchTwoSignal3AspectJoiningPoint.o
 

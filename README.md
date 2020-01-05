@@ -81,7 +81,7 @@ trains if
    In this case the signal shows yellow.
  * the next two track blocks are free, in which case the signal shows green.
  
-Example TODO.
+[Example Code](examples/Signal3AspectWithBlockDistanceInput/Signal3Aspect_with_BlockDistanceInput.ino)
 
 ## 3 Aspect Signal controlled by a DistanceTimer
 
