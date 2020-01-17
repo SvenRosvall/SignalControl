@@ -70,7 +70,7 @@ responsible for updating the button and signal objects.
 The Light objects do not need to be updated. 
 They are updated by the signal object they belong to.
 
-[Example Code](examples/Signal2AspectWithButton/signal2aspect_with_button.ino)
+[Example Code](examples/Signal2AspectWithButton/Signal2AspectWithButton.ino)
 
 ## 3 Aspect Signal controlled by BlockDistanceInput.
 
@@ -81,7 +81,7 @@ trains if
    In this case the signal shows yellow.
  * the next two track blocks are free, in which case the signal shows green.
  
-[Example Code](examples/Signal3AspectWithBlockDistanceInput/Signal3Aspect_with_BlockDistanceInput.ino)
+[Example Code](examples/Signal3AspectWithBlockDistanceInput/Signal3AspectWithBlockDistanceInput.ino)
 
 ## 3 Aspect Signal controlled by a DistanceTimer
 
@@ -90,14 +90,14 @@ a DistanceTimer class that is triggered by a track occupancy sensor on pin 2
 and uses a timer to decide how far away the train is, and thus what 
 colour the signal shall show.
  
-[Example Code](examples/Signal3AspectWithDistanceTimer/Signal3Aspect_with_DistanceTimer.ino)
+[Example Code](examples/Signal3AspectWithDistanceTimer/Signal3AspectWithDistanceTimer.ino)
 
 ## Two independent 3 Aspect Signals
 
 This example shows how a single Arduino can control two signals independently.
 Here we use the Signal3Aspect class with the DistanceTimer as above.
 
-[Example Code](examples/TwoIndependentSignal3Aspect/two_independent_Signal3Aspect.ino)
+[Example Code](examples/TwoIndependentSignal3Aspect/TwoIndependentSignal3Aspect.ino)
 
 ## Two 3 Aspect Signals controlling tracks that join a point (turnout)
 
@@ -109,4 +109,4 @@ We have one input from the point that indicates which way it is set.
 We also have a track occupancy detector on the other side of point that
 is used by the DistanceTimer.
 
-[Example Code](examples/TwoSignal3AspectJoiningPoint/two_Signal3Aspect_joining_point.ino)
+[Example Code](examples/TwoSignal3AspectJoiningPoint/TwoSignal3AspectJoiningPoint.ino)
