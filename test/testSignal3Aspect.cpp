@@ -89,7 +89,7 @@ void testUpdate_Initial_ToRedAtEnd()
   assertEquals(0, getAnalogWrite(redPin));
   assertEquals(0, getAnalogWrite(yellowPin));
 
-  addMillis(transitionInterval);
+  addMillis(defaultTransitionInterval);
   setDigitalRead(triggerPin, HIGH);
   distanceTimer.update();
   signal.update(); // End of TO_RED. Lights have changed.
@@ -113,7 +113,7 @@ void testUpdate_ToRed_Red()
   distanceTimer.update();
   signal.update();
 
-  addMillis(transitionInterval + 1);
+  addMillis(defaultTransitionInterval + 1);
   distanceTimer.update();
   signal.update();
 
@@ -166,7 +166,7 @@ void testUpdate_ToYellowAtEnd()
   signal.update();
 
   // Transition to end of light change. Lights have changed to Yellow.
-  addMillis(transitionInterval + 1);
+  addMillis(defaultTransitionInterval + 1);
   distanceTimer.update();
   signal.update();
   
@@ -195,7 +195,7 @@ void testUpdate_Yellow_ToGreen()
   signal.update();
 
   // Transition to end of light change. Lights have changed to Yellow.
-  addMillis(transitionInterval + 1);
+  addMillis(defaultTransitionInterval + 1);
   distanceTimer.update();
   signal.update();
   
@@ -230,7 +230,7 @@ void testUpdate_ToGreenAtEnd()
   signal.update();
 
   // Transition to end of light change. Lights have changed to Green.
-  addMillis(transitionInterval + 1);
+  addMillis(defaultTransitionInterval + 1);
   distanceTimer.update();
   signal.update();
   

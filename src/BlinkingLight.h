@@ -1,15 +1,22 @@
 #include "Light.h"
 
-const long blinkingInterval = 1000;
+const long defaultBlinkingInterval = 1000;
 
 class BlinkingLight : public Light
 {
   Light & light;
   bool lightOn;
+  long blinkingInterval;
 
 public:
   BlinkingLight(Light & light, bool lightOn = false)
+    : BlinkingLight(light, defaultBlinkingInterval, lightOn)
+  {
+  }
+
+  BlinkingLight(Light & light, long blinkingInterval, bool lightOn = false)
     : light(light)
+    , blinkingInterval(blinkingInterval)
     , lightOn(lightOn)
   {
     this->light.set(lightOn);

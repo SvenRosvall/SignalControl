@@ -16,7 +16,7 @@ void testSlowSignal_Off_Start()
 
   // First, set it to ON and let it take effect
   light.set(true);
-  addMillis(transitionInterval + 1);
+  addMillis(defaultTransitionInterval + 1);
   light.update();
   
   // Then set to OFF
@@ -33,7 +33,7 @@ void testSlowSignal_Off_End()
   clearArduinoValues();
   SlowLight light(greenPin, false);
   light.set(false);
-  addMillis(transitionInterval + 1);
+  addMillis(defaultTransitionInterval + 1);
 
   light.update();
 
@@ -48,7 +48,7 @@ void testSlowSignal_On_Start()
 
   // First, set it to OFF and let it take effect
   light.set(false);
-  addMillis(transitionInterval + 1);
+  addMillis(defaultTransitionInterval + 1);
   light.update();
   
   // Then set to ON
@@ -65,7 +65,7 @@ void testSlowSignal_On_End()
   clearArduinoValues();
   SlowLight light(greenPin, false);
   light.set(true);
-  addMillis(transitionInterval + 1);
+  addMillis(defaultTransitionInterval + 1);
 
   light.update();
 
@@ -80,18 +80,18 @@ void testSlowSignal_ChangeWhileChanging()
 
   // First, set it to OFF and let it take effect
   light.set(false);
-  addMillis(transitionInterval + 1);
+  addMillis(defaultTransitionInterval + 1);
   light.update();
   
   // Then set to ON and wait half-way.
   light.set(true);
-  addMillis(transitionInterval / 2);
+  addMillis(defaultTransitionInterval / 2);
   light.update();
   assertEquals(127, getAnalogWrite(greenPin));
 
   // Finally set it to OFF again and it should soon have effect.
   light.set(false);
-  addMillis(transitionInterval / 2);
+  addMillis(defaultTransitionInterval / 2);
   light.update();
   assertEquals(0, getAnalogWrite(greenPin));
 }

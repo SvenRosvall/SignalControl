@@ -32,7 +32,7 @@ void testBlinkingSignal_Off_Start()
 
   // First, set it to ON and let it take effect
   light.set(true);
-  addMillis(blinkingInterval + 1);
+  addMillis(defaultBlinkingInterval + 1);
   light.update();
   
   // Then set to OFF
@@ -50,7 +50,7 @@ void testBlinkingSignal_Off_End()
   MockLight mockLight;
   BlinkingLight light(mockLight, false);
   light.set(false);
-  addMillis(blinkingInterval + 1);
+  addMillis(defaultBlinkingInterval + 1);
 
   light.update();
 
@@ -83,7 +83,7 @@ void testBlinkingSignal_On_End()
   MockLight mockLight;
   BlinkingLight light(mockLight, false);
   light.set(true);
-  addMillis(blinkingInterval + 1);
+  addMillis(defaultBlinkingInterval + 1);
 
   light.update();
 
@@ -103,13 +103,13 @@ void testBlinkingSignal_ChangeWhileChanging()
   
   // Then set to ON and wait half-way.
   light.set(true);
-  addMillis(blinkingInterval / 2);
+  addMillis(defaultBlinkingInterval / 2);
   light.update();
   assertEquals(false, mockLight.isLightOn());
 
   // Finally set it to OFF again and it should soon have effect.
   light.set(false);
-  addMillis(blinkingInterval / 2 + 1);
+  addMillis(defaultBlinkingInterval / 2 + 1);
   light.update();
   assertEquals(false, mockLight.isLightOn());
 }

@@ -82,7 +82,7 @@ namespace
     assertEquals(255, getAnalogWrite(greenPin));
     assertEquals(0, getAnalogWrite(redPin));
 
-    addMillis(transitionInterval);
+    addMillis(defaultTransitionInterval);
     setDigitalRead(triggerPin, HIGH);
     distanceTimer.update();
     signal.update(); // End of TO_RED. Lights have changed.
@@ -104,7 +104,7 @@ namespace
     distanceTimer.update();
     signal.update();
 
-    addMillis(transitionInterval + 1);
+    addMillis(defaultTransitionInterval + 1);
     distanceTimer.update();
     signal.update();
 
@@ -153,7 +153,7 @@ namespace
     signal.update();
 
     // Transition to end of light change. Lights have changed to Green.
-    addMillis(transitionInterval + 1);
+    addMillis(defaultTransitionInterval + 1);
     distanceTimer.update();
     signal.update();
 

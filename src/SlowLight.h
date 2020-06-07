@@ -1,16 +1,23 @@
 #include "Light.h"
 
-const long transitionInterval = 500;
+const long defaultTransitionInterval = 500;
 
 class SlowLight : public Light
 {
   int lightPin;
+  long transitionInterval;
   bool lightOn;
   unsigned long timer;
 
 public:
   SlowLight(int lightPin, bool lightOn = false)
+    : SlowLight(lightPin, defaultTransitionInterval, lightOn)
+  {
+  }
+
+  SlowLight(int lightPin, long transitionInterval, bool lightOn = false)
     : lightPin(lightPin)
+    , transitionInterval(transitionInterval)
     , lightOn(lightOn)
     , timer(0)
   {
