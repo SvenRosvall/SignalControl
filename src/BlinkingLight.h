@@ -6,25 +6,17 @@ class BlinkingLight : public Light
 {
   Light & light;
   bool lightOn;
-  unsigned long timer;
 
 public:
-  BlinkingLight(Light & light, bool lightOn)
+  BlinkingLight(Light & light, bool lightOn = false)
     : light(light)
     , lightOn(lightOn)
-    , timer(0)
   {
     this->light.set(lightOn);
   }
 
   void set(bool lightOn)
   {
-    if (this->lightOn == lightOn)
-    {
-      // No change
-      return;
-    }
-
     this->lightOn = lightOn;
   }
 
