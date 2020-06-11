@@ -29,7 +29,6 @@ public:
     switch (distanceInput.freeBlocks())
     {
     case 0:
-      Serial.println("state=Stopp");
       redLight.set(true);
       greenLight.set(false);
       greenLight2.set(false);
@@ -37,7 +36,6 @@ public:
       break;
 
     case 1:
-      Serial.println("state=Kör vänta Stopp");
       greenLight.set(true);
       greenLight2.set(true);
       whiteLight.set(false);
@@ -45,7 +43,6 @@ public:
       break;
 
     default:
-      Serial.println("state=Kör vänta Kör");        
       greenLight.set(true);
       whiteLight.set(true);
       redLight.set(false);

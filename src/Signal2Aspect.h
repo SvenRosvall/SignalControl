@@ -32,13 +32,11 @@ public:
   {
     if (input.get())
     {
-      Serial.println("state=GREEN");
       greenLight.set(true);
       redLight.set(false);
     }
     else
     {
-      Serial.println("state=RED");
       redLight.set(true);
       greenLight.set(false);
     }
