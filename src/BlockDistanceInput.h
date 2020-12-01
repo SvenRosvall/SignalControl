@@ -3,6 +3,8 @@
 
 #include "DistanceInput.h"
 
+//const long interval = 5 * 1000;
+
 class BlockDistanceInput : public DistanceInput
 {
   int block1Pin;
