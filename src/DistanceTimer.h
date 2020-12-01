@@ -29,6 +29,7 @@ public:
   {
     if (digitalRead(triggerPin) == LOW)
     {
+      //Serial.println("Detected trigger");
       timer = millis();
     }
     freeBlockCount = (millis() - timer) / interval;

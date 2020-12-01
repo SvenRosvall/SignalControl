@@ -25,18 +25,21 @@ public:
     switch (distanceInput.freeBlocks())
     {
     case 0:
+      //Serial.println("state=RED");
       redLight.set(true);
       greenLight.set(false);
       yellowLight.set(false);
       break;
 
     case 1:
+      //Serial.println("state=YELLOW");        
       yellowLight.set(true);
       greenLight.set(false);
       redLight.set(false);
       break;
 
     default:
+      //Serial.println("state=GREEN");
       greenLight.set(true);
       redLight.set(false);
       yellowLight.set(false);
