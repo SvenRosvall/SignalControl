@@ -14,6 +14,11 @@ void testSlowSignal_Off_Start()
   clearArduinoValues();
   SlowLight light(greenPin, false);
 
+  // Make sure it is off from start
+  addMillis(1);
+  light.update();
+  assertEquals(0, getAnalogWrite(greenPin));
+
   // First, set it to ON and let it take effect
   light.set(true);
   addMillis(defaultTransitionInterval + 1);

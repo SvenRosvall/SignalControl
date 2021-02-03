@@ -19,7 +19,7 @@ public:
     : lightPin(lightPin)
     , transitionInterval(transitionInterval)
     , lightOn(lightOn)
-    , timer(0)
+    , timer(-transitionInterval)
   {
     pinMode(lightPin, OUTPUT);
   }

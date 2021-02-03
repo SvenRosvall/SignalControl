@@ -35,7 +35,7 @@ void clearArduinoValues()
 {
         digitalReadValues.clear();
         analogWrittenValues.clear();
-        nextMillis = 1000000L;
+        nextMillis = 0L;
 }
 
 /* Arduino methods */
