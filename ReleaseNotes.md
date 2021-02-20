@@ -1,3 +1,5 @@
+Branch updates.
+
 # Release Notes
 
 ## 1.2.0
