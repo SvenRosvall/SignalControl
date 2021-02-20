@@ -1,4 +1,4 @@
-Branch text.
+Branch text updated.
 
 # SignalControl
 An Arduino library for controlling LEDs in signals on a model railway.
