@@ -7,7 +7,7 @@ Key features:
 * Support for interlocking.
 * Highly configurable for your model railway layout.
 
-## Overview 
+## Overview
 
 The library is written in C++ but you do not need to understand C++ to use the library.
 Good knowledge C++ is helpful if you want to understand or improve the library code.
@@ -17,6 +17,10 @@ of signals.
 It also contains classes that represent different LED functionalities such
 as blinking LEDs or dimming LEDs that emulate old incandescent bulbs.
 There are also classes to help setting up rules for controlling the signals.
+
+For details see [design overview](Design.md).
+
+For requested bug fixes and feature requests see [TODO](TODO.md).
 
 ## Using SignalControl Library
 
