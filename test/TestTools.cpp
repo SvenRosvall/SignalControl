@@ -12,7 +12,8 @@ void doAssertEquals(const char * file, int line,
         }
 }
 
-void newTest(const char * methodName)
+void newTest(const char * methodName, const char * fileName)
 {
-        printf("Running test %s\n", methodName);
+        printf("Running test %s in %s\n",
+               methodName, fileName);
 }

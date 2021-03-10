@@ -5,6 +5,6 @@ void doAssertEquals(const char * file, int line,
                     int expected, int actual, const char * expression);
 
 #define test() \
-        newTest(__FUNCTION__)
+        newTest(__FUNCTION__, __FILE__)
 
-void newTest(const char * methodName);
+void newTest(const char * methodName, const char * fileName);
