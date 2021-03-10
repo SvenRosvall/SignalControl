@@ -11,8 +11,9 @@ public:
     pinMode(inputPin, INPUT_PULLUP);
   }
 
+  // Returns true if the input pin is active (low).
   virtual bool get() const
   {
-    return digitalRead(inputPin) == HIGH;
+    return digitalRead(inputPin) == LOW;
   }
 };

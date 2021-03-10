@@ -15,7 +15,7 @@ void testPinInput_HIGH()
   PinInput pinInput(inputPin);
 
   setDigitalRead(inputPin, HIGH);
-  assertEquals(true, pinInput.get());
+  assertEquals(false, pinInput.get());
 }
 
 void testPinInput_LOW()
@@ -25,7 +25,7 @@ void testPinInput_LOW()
   PinInput pinInput(inputPin);
 
   setDigitalRead(inputPin, LOW);
-  assertEquals(false, pinInput.get());
+  assertEquals(true, pinInput.get());
 }
 
 void testPinInput()
