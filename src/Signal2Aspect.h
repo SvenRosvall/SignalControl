@@ -19,9 +19,12 @@ public:
   {
   }
 
+  // Convenience Constructor.
   Signal2Aspect(const DistanceInput & distanceInput,
          Light & greenLight,
          Light & redLight)
+    // Note: Lifetime of DistanceToDigitalInput object infinite.
+    // This is OK as the DistanceTimer is usually never destroyed.
     : Signal2Aspect(* new DistanceToDigitalInput(distanceInput)
            , greenLight
            , redLight)
