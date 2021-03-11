@@ -17,11 +17,13 @@ void testInitialState()
 {
   test();
   clearArduinoValues();
+  DistanceTimer distanceTimer(triggerPin);
   SlowLight greenLight(greenPin, true);
   SlowLight redLight(redPin, false);
   SlowLight yellowLight(yellowPin, false);
-  Signal3Aspect signal(DistanceTimer(triggerPin), greenLight, redLight, yellowLight);
+  Signal3Aspect signal(distanceTimer, greenLight, redLight, yellowLight);
 
+  distanceTimer.update();
   signal.update();
 
   assertEquals(255, getAnalogWrite(greenPin));
