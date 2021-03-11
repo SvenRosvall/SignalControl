@@ -16,8 +16,8 @@ public:
 
   BlinkingLight(Light & light, long blinkingInterval, bool lightOn = false)
     : light(light)
-    , blinkingInterval(blinkingInterval)
     , lightOn(lightOn)
+    , blinkingInterval(blinkingInterval)
   {
     this->light.set(lightOn);
   }
