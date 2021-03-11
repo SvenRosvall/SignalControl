@@ -56,10 +56,10 @@ telling the signal that it shall show stop/danger.
 Uses track sensors to determine how many track blocks are available.
 
 Inputs:
-* block 1 pin - pin number that is connected to the sensor for
-  the first track block in advance of the signal.
-* block 2 pin - pin number that is connected to the sensor for
-  the second track block in advance of the signal.
+* Two triggers. These triggers can be either:
+  * pin numbers - number of input pin that is connected to the
+    sensor for the each track block in advance of the signal.
+  * DigitalInput - input objects for each track block.  
 
 ### DistanceTimer
 Instead of counting the actual free blocks this class uses

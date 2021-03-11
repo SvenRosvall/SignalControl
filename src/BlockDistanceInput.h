@@ -2,30 +2,35 @@
 #define BlockDistanceInput_H
 
 #include "DistanceInput.h"
+#include "DigitalInput.h"
+#include "PinInput.h"
 
 class BlockDistanceInput : public DistanceInput
 {
-  int block1Pin;
-  int block2Pin;
+  DigitalInput const & blockTrigger1;
+  DigitalInput const & blockTrigger2;
   unsigned int freeBlockCount;
 
 public:
+  // Convenience constructor
   BlockDistanceInput(int block1Pin, int block2Pin)
-    : block1Pin(block1Pin)
-    , block2Pin(block2Pin)
-    , freeBlockCount(0)
+    : BlockDistanceInput(* new PinInput(block1Pin), * new PinInput(block2Pin))
   {
-    pinMode(block1Pin, INPUT_PULLUP);
-    pinMode(block2Pin, INPUT_PULLUP);
+  }
+
+  BlockDistanceInput(DigitalInput const & blockTrigger1, DigitalInput const & blockTrigger2)
+    : blockTrigger1(blockTrigger1)
+    , blockTrigger2(blockTrigger2)
+  {
   }
   
   void update()
   {
-    if (digitalRead(block1Pin) == LOW)
+    if (blockTrigger1.get())
     {
       freeBlockCount = 0;
     }
-    else if (digitalRead(block2Pin) == LOW)
+    else if (blockTrigger2.get())
     {
       freeBlockCount = 1;
     }
