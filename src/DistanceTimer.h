@@ -2,24 +2,33 @@
 #define DistanceTimer_H
 
 #include "DistanceInput.h"
+#include "DigitalInput.h"
+#include "PinInput.h"
 
 const long interval = 5 * 1000;
 
 class DistanceTimer : public DistanceInput
 {
-  int triggerPin;
+  DigitalInput const & trigger;
   unsigned long timer;
   unsigned int freeBlockCount;
 
 public:
+  // Convenience Constructor
   DistanceTimer(int triggerPin)
-    : triggerPin(triggerPin)
+    // Note: Lifetime of PinInput object infinite.
+    // This is OK as the DistanceTimer is usually never destroyed.
+    : DistanceTimer(* new PinInput(triggerPin))
+  {
+  }
+
+  DistanceTimer(DigitalInput const & trigger)
+    : trigger(trigger)
     , timer(0)
     , freeBlockCount(0)
   {
-    pinMode(triggerPin, INPUT_PULLUP);
   }
-  
+
   void setTimer(unsigned long timer)
   {
     this->timer = timer;
@@ -27,7 +36,7 @@ public:
 
   void update()
   {
-    if (digitalRead(triggerPin) == LOW)
+    if (trigger.get())
     {
       timer = millis();
     }

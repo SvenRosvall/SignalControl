@@ -37,6 +37,8 @@ track blocks are free past the signal.
 
 ### PinInput
 Returns the result of a digital input pin.
+The pin is considered to have "Active LOW" logic, i.e. the returned
+result is true if the pin is LOW.
 
 Input:
 * pin number : Pin to return the result for.
@@ -66,8 +68,11 @@ leave unoccupied as time passes.
 This is a cheap solution as only one trigger is required.
 
 Inputs:
-* trigger pin - pin number that is connected to a sensor that 
-detects a train that passes the signal.
+* trigger - can be one of
+  * DigitalInput - triggers the timer when object returns true.
+  * pin - pin number that is connected to a sensor that 
+detects a train that passes the signal. 
+    Triggers the timer when the pin goes LOW.
 
 ## Interface Light
 Responsible for handling each light in a signal.
