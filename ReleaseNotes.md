@@ -1,5 +1,13 @@
 # Release Notes
 
+## 1.3.0
+Minor improvements. No backwards compatibility breaks.
+### Improvements
+* BlockDistanceInput and DistanceTimer can be constructed with 
+  DigitalInput objects.
+### Bug fixes
+* Lifetime issues with temporary objects that could cause crashes.
+
 ## 1.2.0
 Minor improvements. No backwards compatibility breaks.
 ### Improvements
