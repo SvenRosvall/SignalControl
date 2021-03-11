@@ -7,7 +7,7 @@ run-%: %
 	./$<
 
 CC=g++
-CPPFLAGS=-I../src -g
+CPPFLAGS=-I../src -g -Wall
 
 testAll : testAll.o \
 	testSignalUnitTest.o \
