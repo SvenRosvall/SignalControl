@@ -1,4 +1,5 @@
 #include <map>
+#include <string>
 #include "testArduino.hpp"
 #include "testSignalUnitTest.h"
 #include "testSignal4Aspect.h"
@@ -17,7 +18,7 @@ std::map<std::string, void (*)()> suites = {
   {"SignalUnitTest", testSignalUnitTest},
   {"Signal4Aspect", testSignal4Aspect},
   {"Signal3Aspect", testSignal3Aspect},
-  {"Signal2Aspect", testSignal3Aspect},
+  {"Signal2Aspect", testSignal2Aspect},
   {"DistanceTimer", testDistanceTimer},
   {"DistanceWithCondition", testDistanceWithCondition},
   {"SlowLight", testSlowLight},

@@ -22,7 +22,7 @@ public:
   Signal2Aspect(const DistanceInput & distanceInput,
          Light & greenLight,
          Light & redLight)
-    : Signal2Aspect(DistanceToDigitalInput(distanceInput)
+    : Signal2Aspect(* new DistanceToDigitalInput(distanceInput)
            , greenLight
            , redLight)
   {
