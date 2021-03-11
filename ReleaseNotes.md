@@ -5,6 +5,7 @@ Minor improvements. No backwards compatibility breaks.
 ### Improvements
 * BlockDistanceInput and DistanceTimer can be constructed with 
   DigitalInput objects.
+* Introduce SettableInput.
 ### Bug fixes
 * Lifetime issues with temporary objects that could cause crashes.
 

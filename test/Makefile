@@ -23,6 +23,7 @@ testAll : testAll.o \
 	testDistanceWithCondition.o \
 	testPinInput.o \
 	testInvertInput.o \
+	testSettableInput.o \
 	testDistanceToDigitalInput.o \
 	ArduinoMock.o \
 	TestTools.o

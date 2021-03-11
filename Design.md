@@ -43,6 +43,12 @@ result is true if the pin is LOW.
 Input:
 * pin number : Pin to return the result for.
 
+### SettableInput
+Returns a state that can be set programmatically.
+
+Input: 
+* Initial state (default false)
+
 ## Interface DistanceInput
 Returns the number of unoccupied track blocks. 
 This is used by signals to decide which aspect to show.
