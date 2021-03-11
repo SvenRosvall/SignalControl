@@ -1,3 +1,6 @@
+#ifndef PinInput_H
+#define PinInput_H
+
 #include "DigitalInput.h"
 
 class PinInput : public DigitalInput
@@ -17,3 +20,5 @@ public:
     return digitalRead(inputPin) == LOW;
   }
 };
+
+#endif
