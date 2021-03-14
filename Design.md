@@ -70,7 +70,7 @@ Inputs:
 Uses track sensors to determine how many track blocks are available.
 
 Inputs:
-* Two triggers. These triggers can be either:
+* One, two or three triggers. These triggers can be either:
   * pin numbers - number of input pin that is connected to the
     sensor for the each track block in advance of the signal.
   * DigitalInput - input objects for each track block.  
