@@ -9,6 +9,7 @@
 #include "testFastLight.h"
 #include "testBlinkingLight.h"
 #include "testDistanceTimer.h"
+#include "testBlockDistanceInput.h"
 #include "testDistanceWithCondition.h"
 #include "testPinInput.h"
 #include "testInvertInput.h"
@@ -22,6 +23,7 @@ std::map<std::string, void (*)()> suites = {
   {"Signal3Aspect", testSignal3Aspect},
   {"Signal2Aspect", testSignal2Aspect},
   {"DistanceTimer", testDistanceTimer},
+  {"BlockDistanceInput", testBlockDistanceInput},
   {"DistanceWithCondition", testDistanceWithCondition},
   {"SlowLight", testSlowLight},
   {"FastLight", testFastLight},

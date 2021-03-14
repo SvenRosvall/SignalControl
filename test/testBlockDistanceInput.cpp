@@ -7,7 +7,7 @@
 namespace
 {
   const int block1Pin = 1;
-  const int block2Pin = 1;
+  const int block2Pin = 2;
 
   void testInitialState()
   {
@@ -51,7 +51,7 @@ namespace
     BlockDistanceInput distanceInput(block1Pin, block2Pin);
 
     setDigitalRead(block1Pin, HIGH);
-    setDigitalRead(block1Pin, HIGH);
+    setDigitalRead(block2Pin, HIGH);
     distanceInput.update();
 
     assertEquals(99, distanceInput.freeBlocks());
