@@ -7,7 +7,7 @@ run-%: %
 	./$<
 
 CC=g++
-CPPFLAGS=-I../src -g -Wall
+CPPFLAGS=-std=gnu++11 -I../src -g -Wall
 
 testAll : testAll.o \
 	testSignalUnitTest.o \
