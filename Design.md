@@ -57,6 +57,14 @@ Example: If there are no unoccupied track blocks a 0 is returned
 telling the signal that it shall show stop/danger.
 
 ### DistanceWithCondition
+Used when the track in advance of the signal has potential
+obstacles such as a point set against the route ahead of the signal.
+
+Inputs:
+* DistanceInput - describes the number of unoccupied track blocks in
+  advance of the signal in normal cases.
+* DigitalInput - when this returns falls, makes the signal set to
+  danger/stop.
 
 ### BlockDistanceInput
 Uses track sensors to determine how many track blocks are available.
