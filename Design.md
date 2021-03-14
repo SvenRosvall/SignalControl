@@ -11,7 +11,7 @@ only one responsibility.
 Anything indirectly related is delegated to objects defined by
 an interface that describes the delegated responsiblities.
 
-Example: The ```Light``` interface describes the responsibility
+Example: The `Light` interface describes the responsibility
 to show a single light. This light may be on, off or blinking.
 Implementing classes define how this is done for example by 
 representing an LED connected to an output pin. 
@@ -92,10 +92,10 @@ detects a train that passes the signal.
 Responsible for handling each light in a signal.
 
 ### BlinkingLight
-Implements blinking of a delegated ```Light``` object.
+Implements blinking of a delegated `Light` object.
 
 Inputs:
-* Light - Another ```Light``` object that is delegated to.
+* Light - Another `Light` object that is delegated to.
 * blink interval (default=1s)
 * start state (default=false)
 
