@@ -8,6 +8,7 @@ namespace
 {
   const int block1Pin = 1;
   const int block2Pin = 2;
+  const int block3Pin = 3;
 
   void testInitialState()
   {
@@ -44,6 +45,20 @@ namespace
     assertEquals(1, distanceInput.freeBlocks());
   }
 
+  void testTwoBlockAway()
+  {
+    test();
+    clearArduinoValues();
+    BlockDistanceInput distanceInput(block1Pin, block2Pin, block3Pin);
+
+    setDigitalRead(block1Pin, HIGH);
+    setDigitalRead(block2Pin, HIGH);
+    setDigitalRead(block3Pin, LOW);
+    distanceInput.update();
+
+    assertEquals(2, distanceInput.freeBlocks());
+  }
+
   void testManyBlockAway()
   {
     test();
@@ -63,5 +78,6 @@ void testBlockDistanceInput()
   testInitialState();
   testFirstBlockOccupied();
   testOneBlockAway();
+  testTwoBlockAway();
   testManyBlockAway();
 }
