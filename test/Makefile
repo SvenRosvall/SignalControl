@@ -21,6 +21,7 @@ testAll : testAll.o \
 	testDistanceTimer.o \
 	testBlockDistanceInput.o \
 	testDistanceWithCondition.o \
+	testDistanceChoice.o \
 	testPinInput.o \
 	testInvertInput.o \
 	testSettableInput.o \

@@ -30,15 +30,6 @@ and another DistanceInput.
 Then these can be chained to produce any number of blocks.
 Within the chain we can now insert DistanceWithCondition objects at any point.
 
-## Find block count on diverging route.
-If we have a facing point then the number of free blocks used by
-the signal depends on the route selected by the point.
-
-Example:
-``` 
-ChoiceDistanceInput(DigitalInput pointPosition, DistanceInput route1, DistanceInput route2);
-```
-
 ## Review CANSIG design for ideas
 CANSIG uses a set of flags that control the signal.
 If any flags in the red set is set, signal shows red.

@@ -66,6 +66,17 @@ Inputs:
 * DigitalInput - when this returns falls, makes the signal set to
   danger/stop.
 
+### DistanceChoice
+Used for facing points where the number of free blocks used by
+the signal depends on the route selected by the point.
+
+Inputs:
+* DigitalInput - conditional input from the facing point.
+* DistanceInput - normal route. This is the chosen route when the point
+  is set to the normal route, i.e. the conditional input is false.
+* DistanceInput - diverging route. This is the chosen route when the point
+  is set to the diverging route, i.e. the conditional input is true. 
+
 ### BlockDistanceInput
 Uses track sensors to determine how many track blocks are available.
 
