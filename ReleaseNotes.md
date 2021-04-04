@@ -2,6 +2,10 @@
 
 ## 1.3.0
 Minor improvements. No backwards compatibility breaks.
+
+The improvements facilitate controlling block occupancy programmatically
+rather than from input pins. 
+This enables block occupancy input via CBUS events. 
 ### Improvements
 * BlockDistanceInput and DistanceTimer can be constructed with 
   DigitalInput objects.
