@@ -7,8 +7,8 @@
 
 class BlockDistanceInput : public DistanceInput
 {
-  int blockTriggerCount;
-  DigitalInput const ** blockTriggers;
+  DigitalInput const * blockTrigger;
+  DistanceInput * distanceBeyond;
   unsigned int freeBlockCount;
 
 public:
@@ -29,30 +29,24 @@ public:
   }
 
   BlockDistanceInput(DigitalInput const & blockTrigger1)
-    : blockTriggerCount(1)
-    , blockTriggers(new DigitalInput const *[1])
+    : blockTrigger(&blockTrigger1)
+    , distanceBeyond(nullptr)
     , freeBlockCount(0)
   {
-    blockTriggers[0] = &blockTrigger1;
   }
 
   BlockDistanceInput(DigitalInput const & blockTrigger1, DigitalInput const & blockTrigger2)
-    : blockTriggerCount(2)
-    , blockTriggers(new DigitalInput const *[2])
+    : blockTrigger(&blockTrigger1)
+    , distanceBeyond(new BlockDistanceInput(blockTrigger2))
     , freeBlockCount(0)
   {
-    blockTriggers[0] = &blockTrigger1;
-    blockTriggers[1] = &blockTrigger2;
   }
 
   BlockDistanceInput(DigitalInput const & blockTrigger1, DigitalInput const & blockTrigger2, DigitalInput const & blockTrigger3)
-    : blockTriggerCount(3)
-    , blockTriggers(new DigitalInput const *[3])
+    : blockTrigger(&blockTrigger1)
+    , distanceBeyond(new BlockDistanceInput(blockTrigger2, blockTrigger3))
     , freeBlockCount(0)
   {
-    blockTriggers[0] = &blockTrigger1;
-    blockTriggers[1] = &blockTrigger2;
-    blockTriggers[2] = &blockTrigger3;
   }
 
   void update()
@@ -68,15 +62,27 @@ public:
 private:
   int findFreeBlocks()
   {
-    for (int i = 0 ; i < blockTriggerCount ; ++i)
+    if (blockTrigger->get())
     {
-      if (blockTriggers[i]->get())
+      return 0;
+    }
+    else if (distanceBeyond != nullptr)
+    {
+      distanceBeyond->update();
+      int freeBlocksBeyond = distanceBeyond->freeBlocks();
+      if (freeBlocksBeyond >= 99)
       {
-        return i;
+        return 99;
+      }
+      else
+      {
+        return 1 + freeBlocksBeyond;
       }
     }
-
-    return 99;
+    else
+    {
+      return 99;
+    }
   }
 };
 #endif

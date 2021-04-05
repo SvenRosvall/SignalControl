@@ -5,6 +5,7 @@ class DistanceInput
 {
 public:
   virtual unsigned int freeBlocks() const = 0;
+  virtual void update() {}
 };
 
 #endif
