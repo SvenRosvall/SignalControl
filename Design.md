@@ -80,7 +80,11 @@ Inputs:
 ### BlockDistanceInput
 Uses track sensors to determine how many track blocks are available.
 
-Inputs:
+Inputs: One of:
+* Trigger and a DistanceInput.
+  * Trigger is a DigitalInput object for the nearest block.
+  * DistanceInput is an object representing the route in advance of
+    the nearest block.
 * One, two or three triggers. These triggers can be either:
   * pin numbers - number of input pin that is connected to the
     sensor for the each track block in advance of the signal.

@@ -12,7 +12,31 @@ class BlockDistanceInput : public DistanceInput
   unsigned int freeBlockCount;
 
 public:
-  // Convenience constructors
+  BlockDistanceInput(DigitalInput const & blockTrigger, DistanceInput & distanceBeyond)
+    : blockTrigger(&blockTrigger)
+    , distanceBeyond(&distanceBeyond)
+    , freeBlockCount(0)
+  {
+  }
+
+  BlockDistanceInput(DigitalInput const & blockTrigger)
+    : blockTrigger(&blockTrigger)
+    , distanceBeyond(nullptr)
+    , freeBlockCount(0)
+  {
+  }
+
+  BlockDistanceInput(DigitalInput const & blockTrigger1, DigitalInput const & blockTrigger2)
+    : BlockDistanceInput(blockTrigger1, * new BlockDistanceInput(blockTrigger2))
+  {
+  }
+
+  BlockDistanceInput(DigitalInput const & blockTrigger1, DigitalInput const & blockTrigger2, DigitalInput const & blockTrigger3)
+    : BlockDistanceInput(blockTrigger1, * new BlockDistanceInput(blockTrigger2, blockTrigger3))
+  {
+  }
+
+  // Convenience constructors for backwards compatibility. Takes input pins for track sensors.
   BlockDistanceInput(int block1Pin)
     : BlockDistanceInput(* new PinInput(block1Pin))
   {
@@ -25,27 +49,6 @@ public:
 
   BlockDistanceInput(int block1Pin, int block2Pin, int block3Pin)
     : BlockDistanceInput(* new PinInput(block1Pin), * new PinInput(block2Pin), * new PinInput(block3Pin))
-  {
-  }
-
-  BlockDistanceInput(DigitalInput const & blockTrigger1)
-    : blockTrigger(&blockTrigger1)
-    , distanceBeyond(nullptr)
-    , freeBlockCount(0)
-  {
-  }
-
-  BlockDistanceInput(DigitalInput const & blockTrigger1, DigitalInput const & blockTrigger2)
-    : blockTrigger(&blockTrigger1)
-    , distanceBeyond(new BlockDistanceInput(blockTrigger2))
-    , freeBlockCount(0)
-  {
-  }
-
-  BlockDistanceInput(DigitalInput const & blockTrigger1, DigitalInput const & blockTrigger2, DigitalInput const & blockTrigger3)
-    : blockTrigger(&blockTrigger1)
-    , distanceBeyond(new BlockDistanceInput(blockTrigger2, blockTrigger3))
-    , freeBlockCount(0)
   {
   }
 

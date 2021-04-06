@@ -12,6 +12,7 @@
 #include "testBlockDistanceInput.h"
 #include "testDistanceWithCondition.h"
 #include "testDistanceChoice.h"
+#include "testBlockTopologies.h"
 #include "testPinInput.h"
 #include "testInvertInput.h"
 #include "testDistanceToDigitalInput.h"
@@ -27,6 +28,7 @@ std::map<std::string, void (*)()> suites = {
   {"BlockDistanceInput", testBlockDistanceInput},
   {"DistanceWithCondition", testDistanceWithCondition},
   {"DistanceChoice", testDistanceChoice},
+  {"BlockTopologies", testBlockTopologies},
   {"SlowLight", testSlowLight},
   {"FastLight", testFastLight},
   {"BlinkingLight", testBlinkingLight},

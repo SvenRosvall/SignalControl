@@ -22,6 +22,7 @@ testAll : testAll.o \
 	testBlockDistanceInput.o \
 	testDistanceWithCondition.o \
 	testDistanceChoice.o \
+	testBlockTopologies.o \
 	testPinInput.o \
 	testInvertInput.o \
 	testSettableInput.o \

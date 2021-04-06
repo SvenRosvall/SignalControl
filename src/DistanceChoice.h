@@ -19,7 +19,7 @@ public:
 
   virtual unsigned int freeBlocks() const
   {
-    return condition.get() == false
+    return (condition.get() == false)
       ? route1.freeBlocks()  // Normal route
       : route2.freeBlocks(); // Diverging route
   }
