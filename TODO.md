@@ -4,6 +4,17 @@
 Signals should only be concerned with how to display an aspect.
 Move the knowledge of number of free blocks into a "translator" object.
 
+## Feathers
+Indicates diverging routes.
+
+Should light up when the signal is not red and a specified point
+is set to a diverging route.
+
+A signal can have several feathers.
+
+How to make it easy to add a feather to any signal without having
+to create permutations of all combinations? 
+
 ## Review CANSIG design for ideas
 CANSIG uses a set of flags that control the signal.
 If any flags in the red set is set, signal shows red.
