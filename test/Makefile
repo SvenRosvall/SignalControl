@@ -24,6 +24,7 @@ testAll : testAll.o \
 	testDistanceChoice.o \
 	testBlockTopologies.o \
 	testPinInput.o \
+	testAndInput.o \
 	testInvertInput.o \
 	testSettableInput.o \
 	testDistanceToDigitalInput.o \

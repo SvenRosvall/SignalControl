@@ -14,6 +14,7 @@
 #include "testDistanceChoice.h"
 #include "testBlockTopologies.h"
 #include "testPinInput.h"
+#include "testAndInput.h"
 #include "testInvertInput.h"
 #include "testDistanceToDigitalInput.h"
 #include "testSettableInput.h"
@@ -33,6 +34,7 @@ std::map<std::string, void (*)()> suites = {
   {"FastLight", testFastLight},
   {"BlinkingLight", testBlinkingLight},
   {"PinInput", testPinInput},
+  {"AndInput", testAndInput},
   {"InvertInput", testInvertInput},
   {"DistanceToDigitalInput", testDistanceToDigitalInput},
   {"SettableInput", testSettableInput}
