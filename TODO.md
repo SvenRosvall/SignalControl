@@ -30,3 +30,12 @@ Maybe a DistanceInput implementation could use this logic?
 This is useful for usage by JMRI which calculates the distance itself.
 
 This requires the separation of responsibilities above.
+
+Suggestion is to create pure signal classes.
+They implement one or more interfaces that describe infos (real-world statuses
+such as clear/caution/stop and diverging-route and short-route)
+of the signal (but not what to display them).
+The signal then know how to display these infos.
+
+We need a SignalTranslator class that translates e.g. DistanceInput into 
+infos that the signals consume.
