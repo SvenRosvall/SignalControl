@@ -18,6 +18,7 @@
 #include "testInvertInput.h"
 #include "testDistanceToDigitalInput.h"
 #include "testSettableInput.h"
+#include "testTemporaries.h"
 
 std::map<std::string, void (*)()> suites = {
   {"Arduino", testArduino},
@@ -37,7 +38,8 @@ std::map<std::string, void (*)()> suites = {
   {"AndInput", testAndInput},
   {"InvertInput", testInvertInput},
   {"DistanceToDigitalInput", testDistanceToDigitalInput},
-  {"SettableInput", testSettableInput}
+  {"SettableInput", testSettableInput},
+  {"Temporaries", testTemporaries}
 };
 
 int main(int argc, const char * const * argv)

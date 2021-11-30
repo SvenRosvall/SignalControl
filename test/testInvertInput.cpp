@@ -29,8 +29,27 @@ void testInvertInput_FromTrue()
   assertEquals(false, invertInput.get());
 }
 
+void testInvertInvertInput()
+{
+  test();
+  clearArduinoValues();
+
+  MockInput mockInput;
+  InvertInput invertInput1(mockInput);
+  InvertInput invertInput2(invertInput1);
+
+  mockInput.set(false);
+  assertEquals(true, invertInput1.get());
+  assertEquals(false, invertInput2.get());
+
+  mockInput.set(true);
+  assertEquals(false, invertInput1.get());
+  assertEquals(true, invertInput2.get());
+}  
+
 void testInvertInput()
 {
   testInvertInput_FromFalse();
   testInvertInput_FromTrue();
+  testInvertInvertInput();
 }

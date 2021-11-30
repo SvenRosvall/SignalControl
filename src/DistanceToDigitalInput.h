@@ -12,8 +12,13 @@ public:
   DistanceToDigitalInput(const DistanceInput & input)
     : input(input)
   {}
-  
-  bool get() const
+
+  virtual DistanceToDigitalInput * move_clone()
+  {
+    return new DistanceToDigitalInput(input);
+  }
+
+  virtual bool get() const
   {
     return input.freeBlocks() > 0;
   }

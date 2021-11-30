@@ -14,6 +14,11 @@ public:
     pinMode(inputPin, INPUT_PULLUP);
   }
 
+  virtual PinInput * move_clone()
+  {
+    return new PinInput(inputPin);
+  }
+
   // Returns true if the input pin is active (low).
   virtual bool get() const
   {

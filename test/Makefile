@@ -28,6 +28,7 @@ testAll : testAll.o \
 	testInvertInput.o \
 	testSettableInput.o \
 	testDistanceToDigitalInput.o \
+	testTemporaries.o \
 	ArduinoMock.o \
 	TestTools.o
 

@@ -13,6 +13,11 @@ public:
   {
   }
 
+  virtual SettableInput * move_clone()
+  {
+    return new SettableInput(state);
+  }
+
   virtual bool get() const
   {
     return state;
