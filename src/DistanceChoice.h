@@ -5,19 +5,19 @@
 
 class DistanceChoice : public DistanceInput
 {
-  DigitalInput * condition;
+  const DigitalInput * condition;
   bool owningCondition;
   DistanceInput & route1;
   DistanceInput & route2;
 
 public:
-  DistanceChoice(DigitalInput & condition, DistanceInput & route1, DistanceInput & route2)
+  DistanceChoice(const DigitalInput & condition, DistanceInput & route1, DistanceInput & route2)
     : condition(&condition), owningCondition(false)
     , route1(route1)
     , route2(route2)
   {
   }
-  DistanceChoice(DigitalInput && condition, DistanceInput & route1, DistanceInput & route2)
+  DistanceChoice(const DigitalInput && condition, DistanceInput & route1, DistanceInput & route2)
     : condition(condition.move_clone()), owningCondition(true)
     , route1(route1)
     , route2(route2)
