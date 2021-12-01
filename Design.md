@@ -25,11 +25,15 @@ This inverts the result of a DigitalInput object.
 Input:
 * DigitalInput - The object to invert the result for.
 
+The operator ! can also be used.
+
 ### AndInput
 Returns the "logical and" of two DigitalInput objects
 
 Input:
 * DigitalInput x 2 - The two objects to combile the result for as "logical and".
+
+The operator && can also be used.
 
 ### DistanceToDigitalInput
 This converts the result of a DistanceInput object to
