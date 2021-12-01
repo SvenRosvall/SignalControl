@@ -13,7 +13,7 @@ public:
     : input(input)
   {}
 
-  virtual DistanceToDigitalInput * move_clone()
+  virtual DistanceToDigitalInput * move_clone() const
   {
     return new DistanceToDigitalInput(input);
   }

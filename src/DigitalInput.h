@@ -5,7 +5,7 @@ class DigitalInput
 {
 public:
   virtual ~DigitalInput() {}
-  virtual DigitalInput * move_clone() = 0;
+  virtual DigitalInput * move_clone() const = 0;
   virtual bool get() const = 0;
 };
 

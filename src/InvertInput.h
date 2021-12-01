@@ -6,21 +6,21 @@
 
 class InvertInput : public DigitalInput
 {
-  DigitalInput * input;
+  const DigitalInput * input;
   bool owning;
 
 private:
-  InvertInput(DigitalInput * input, bool owning)
+  InvertInput(const DigitalInput * input, bool owning)
     : input(input), owning(owning)
   {
   }
 public:
-  InvertInput(DigitalInput & input)
+  InvertInput(const DigitalInput & input)
     : input(&input), owning(false)
   {
   }
 
-  InvertInput(DigitalInput && input)
+  InvertInput(const DigitalInput && input)
     : input(input.move_clone()), owning(true)
   {
   }
@@ -28,12 +28,12 @@ public:
   // TODO?? I don't understand why this copy constructor is needed.
   // Why isn't the ctors from DigitalInput enough?
   // And yet it doesn't work as it is elided.
-  InvertInput(InvertInput & input)
+  InvertInput(const InvertInput & input)
     : input(&input), owning(false)
   {
   }
 
-  InvertInput(InvertInput && input)
+  InvertInput(const InvertInput && input)
     : input(input.move_clone()), owning(true)
   {
   }
@@ -44,7 +44,7 @@ public:
       delete input;
   }
 
-  virtual InvertInput * move_clone()
+  virtual InvertInput * move_clone() const
   {
     return new InvertInput(owning ? input->move_clone() : input, owning);
   }
@@ -56,12 +56,12 @@ public:
 };
 
 
-inline InvertInput operator!(DigitalInput & input)
+inline InvertInput operator!(const DigitalInput & input)
 {
   return InvertInput(input);
 }
 
-inline InvertInput operator!(DigitalInput && input)
+inline InvertInput operator!(const DigitalInput && input)
 {
   return InvertInput(mv(input));
 }

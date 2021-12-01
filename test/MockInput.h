@@ -7,7 +7,7 @@ public:
     : inputValue(inputValue)
   {}
 
-  virtual MockInput * move_clone()
+  virtual MockInput * move_clone() const
   {
     return new MockInput(inputValue);
   }

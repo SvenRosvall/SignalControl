@@ -14,7 +14,7 @@ public:
     pinMode(inputPin, INPUT_PULLUP);
   }
 
-  virtual PinInput * move_clone()
+  virtual PinInput * move_clone() const
   {
     return new PinInput(inputPin);
   }
