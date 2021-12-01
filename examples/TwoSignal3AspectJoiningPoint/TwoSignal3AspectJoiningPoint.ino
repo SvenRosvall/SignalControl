@@ -7,8 +7,7 @@
 
 DistanceTimer distanceTimer(2);
 PinInput pointInput(8);
-InvertInput invertedPointInput(pointInput);
-DistanceWithCondition distanceTrack1(distanceTimer, invertedPointInput);
+DistanceWithCondition distanceTrack1(distanceTimer, !pointInput);
 DistanceWithCondition distanceTrack2(distanceTimer, pointInput);
 
 // 3,5,6,9,10,11 can be used for PWM output.

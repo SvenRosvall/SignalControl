@@ -33,8 +33,7 @@ namespace
   BlockDistanceInput route3(block3);
   BlockDistanceInput route6(block6);
 
-  InvertInput turnout5i(turnout5);
-  DistanceWithCondition cond5i(route6, turnout5i);
+  DistanceWithCondition cond5i(route6, !turnout5);
   DistanceChoice choice2(turnout2, route3, cond5i);
   BlockDistanceInput route2(block2, choice2);
   DistanceWithCondition cond5(route6, turnout5);
@@ -42,8 +41,7 @@ namespace
 
   DistanceWithCondition cond1(route2, turnout1);
   BlockDistanceInput route1(block1, cond1);
-  InvertInput turnout1i(turnout1);
-  DistanceWithCondition cond1i(route2, turnout1i);
+  DistanceWithCondition cond1i(route2, !turnout1);
   DistanceChoice choice4(turnout4, route5, cond1i);
   BlockDistanceInput route4(block4, choice4);
 

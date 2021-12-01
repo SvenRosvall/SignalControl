@@ -6,19 +6,26 @@
 
 class DistanceWithCondition : public DistanceInput
 {
-  DistanceInput & distanceInput;
-  DigitalInput & stopInput;
+  const DistanceInput & distanceInput;
+  const DigitalInput * stopInput;
+  bool owningStopInput;
 
 public:
-  DistanceWithCondition(DistanceInput & distanceInput, DigitalInput & stopInput)
+  DistanceWithCondition(const DistanceInput & distanceInput, const DigitalInput & stopInput)
     : distanceInput(distanceInput)
-    , stopInput(stopInput)
+    , stopInput(&stopInput), owningStopInput(false)
+  {
+  }
+
+  DistanceWithCondition(const DistanceInput & distanceInput, const DigitalInput && stopInput)
+    : distanceInput(distanceInput)
+    , stopInput(stopInput.move_clone()), owningStopInput(true)
   {
   }
 
   virtual unsigned int freeBlocks() const
   {
-    return stopInput.get()
+    return stopInput->get()
       ? 0
       : distanceInput.freeBlocks();
   }

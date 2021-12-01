@@ -5,7 +5,8 @@
 
 class Signal2Aspect
 {
-  const DigitalInput & input;
+  const DigitalInput * input;
+  bool owningInput;
   Light & greenLight;
   Light & redLight;
 
@@ -13,7 +14,16 @@ public:
   Signal2Aspect(const DigitalInput & input,
          Light & greenLight,
          Light & redLight)
-    : input(input)
+    : input(&input)
+    , greenLight(greenLight)
+    , redLight(redLight)
+  {
+  }
+
+  Signal2Aspect(const DigitalInput && input,
+         Light & greenLight,
+         Light & redLight)
+    : input(input.move_clone())
     , greenLight(greenLight)
     , redLight(redLight)
   {
@@ -33,7 +43,7 @@ public:
 
   void update()
   {
-    if (input.get())
+    if (input->get())
     {
       greenLight.set(true);
       redLight.set(false);

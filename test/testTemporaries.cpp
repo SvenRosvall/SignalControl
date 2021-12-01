@@ -58,6 +58,8 @@ void testInvertInvertInputTemporaries()
   clearArduinoValues();
 
   MockInput mockInput1;
+  // Note: Must cast to DigitalInput. Otherwise the InvertInput copy ctor
+  // will be used which will be elided.
   InvertInput invertInput{(DigitalInput&&)InvertInput(mockInput1)};
 
   mockInput1.set(false);
