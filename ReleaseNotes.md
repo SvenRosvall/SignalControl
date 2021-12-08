@@ -1,5 +1,11 @@
 # Release Notes
 
+## 1.4.0
+Support for more complex topologies where signals may depend
+on routes through points/turnouts.
+
+Also allow for describing rules with operators '&&' and '!'.
+
 ## 1.3.0
 Minor improvements. No backwards compatibility breaks.
 
