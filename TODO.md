@@ -39,3 +39,16 @@ The signal then know how to display these infos.
 
 We need a SignalTranslator class that translates e.g. DistanceInput into 
 infos that the signals consume.
+
+## Synchronized Flashing
+Synchronized flashing of several signals that are in view of the train driver is 
+important to reduce the risk of mistaking flashing lights for steady lights.
+Signals connected to the same Arduino will have synchronized flashing lights in current version.
+
+Flashing lights between multiple Arduinos can be synchronized by running a wire between them.
+One Arduino is designated the controller and it emits the flash syncronization pulses. 
+The other Arduinos will listen to these flash syncronization pulses and use them instead
+of the internal clock to decide when to turn a flashing light on or off.
+
+For implementations using a layout control bus (such as CBUS) it would be possible to 
+replace this wire with a message that controls the flashing lights.
