@@ -22,6 +22,8 @@ For details see [design overview](Design.md).
 
 For requested bug fixes and feature requests see [TODO](TODO.md).
 
+This project includes a [Unit Test framework](test/README.md).
+
 ## Using SignalControl Library
 
 You need to `#include` each class you will use.

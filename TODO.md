@@ -4,7 +4,7 @@
 Signals should only be concerned with how to display an aspect.
 Move the knowledge of number of free blocks into a "translator" object.
 
- ## Feathers
+## Feathers
 Indicates diverging routes.
 
 Should light up when the signal is not red and a specified point

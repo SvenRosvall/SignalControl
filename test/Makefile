@@ -1,6 +1,6 @@
 all: test
 
-test: run-testAll signal.ino.o examples
+test: run-testAll examples
 	@: do nothing
 
 run-%: %
