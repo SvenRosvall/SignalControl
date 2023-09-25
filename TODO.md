@@ -52,3 +52,13 @@ of the internal clock to decide when to turn a flashing light on or off.
 
 For implementations using a layout control bus (such as CBUS) it would be possible to 
 replace this wire with a message that controls the flashing lights.
+
+## Allow lights to be on / blinking / off
+This requires the set() method to take an enum { ON, OFF, BLINK }. 
+Only BlinkingLight will implement all three states. 
+
+There are some cases where a light needs to be able to show any of these three states.
+* New Zealand signalling uses fixed yellow for caution and blinking yellow for advanced caution.
+* Swedish signalling uses a second green light that is fixed on for "go 40", and blinking 
+  for "stop ahead".
+* British signalling also uses flashing yellow for diverging route ahead.
