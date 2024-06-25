@@ -1,5 +1,10 @@
 #include <map>
 #include <string>
+#include <iostream>
+
+#include "Arduino.hpp"
+#include "TestTools.hpp"
+
 #include "testArduino.hpp"
 #include "testSignalUnitTest.h"
 #include "testSignal4Aspect.h"
@@ -44,18 +49,45 @@ std::map<std::string, void (*)()> suites = {
 
 int main(int argc, const char * const * argv)
 {
+  int totalFailures = 0;
   if (*++argv == nullptr)
   {
     for (auto const &i : suites)
     {
+      suite(i.first);
       i.second();
+      totalFailures += failures(); 
     }
   }
   else
   {
+    bool needHelp = false;
     while (const char * arg = *argv++)
     {
-      suites[arg]();
+      auto found = suites.find(arg);
+      if (found != suites.end())
+      {
+        found->second();
+        totalFailures += failures();
+      }
+      else
+      {
+        std::cout << "Cannot find test suite '" << arg << "'" << std::endl;
+        needHelp = true;
     }
   }
+    if (needHelp)
+    {
+      std::cout << "The following test suites are available:" << std::endl;
+      for (auto & suite : suites)
+      {
+        std::cout << "  " << suite.first << std::endl;
+      }
+    }
+  }
+  if (totalFailures > 0)
+  {
+    std::cout << "Completed with totalFailures. " << totalFailures << " test(s) failed." << std::endl;
+  }
+  return totalFailures;
 }

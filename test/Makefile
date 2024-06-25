@@ -7,7 +7,7 @@ run-%: %
 	./$<
 
 CC=g++
-CPPFLAGS=-std=gnu++11 -I../src -g -Wall
+CPPFLAGS=-std=gnu++11 -I../src -I../Arduino -g -Wall
 
 testAll : testAll.o \
 	testSignalUnitTest.o \

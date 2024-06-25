@@ -1,25 +1,31 @@
 #include <map>
+#include <Arduino.h>
+#include <Streaming.h>
+#include <iostream>
 #include "Arduino.hpp"
 #include "ArduinoMock.hpp"
 
 /* Mocking implementation */
 
-std::map<int, PinState> digitalReadValues;
+std::map<int, int> analogReadValues;
+void setAnalogRead(int pin, int value)
+{
+        analogReadValues[pin] = value;
+}
 
+std::map<int, PinState> digitalReadValues;
 void setDigitalRead(int pin, PinState value)
 {
         digitalReadValues[pin] = value;
 }
 
 std::map<int, int> analogWrittenValues;
-
 int getAnalogWrite(int pin)
 {
         return analogWrittenValues[pin];
 }
 
 std::map<int, PinState> digitalWrittenValues;
-
 PinState getDigitalWrite(int pin)
 {
         return digitalWrittenValues[pin];
@@ -46,13 +52,13 @@ void analogWrite(int pin, int value)
 }
 int analogRead(int pin)
 {
-        return 0;
+        return analogReadValues[pin];
 }
 void digitalWrite(int pin, PinState value)
 {
 	digitalWrittenValues[pin] = value;
 }
-int digitalRead(int pin)
+byte digitalRead(int pin)
 {
         return digitalReadValues[pin];
 }
@@ -64,18 +70,77 @@ unsigned long millis()
 {
         return nextMillis;
 }
+void delay(unsigned int delayMillis)
+{
+  nextMillis += delayMillis;
+}
 
 int map(int value, int fromLower, int fromUpper, int toLower, int toUpper)
 {
         return (value - fromLower) * (toUpper - toLower) / (fromUpper - fromLower) + toLower;
 }
 
+byte highByte(unsigned int i)
+{
+  return i >> 8;
+}
+byte lowByte(unsigned int i)
+{
+  return i & 0xFF;
+}
 
-void Serial::begin(int baudRate)
+void Serial_T::begin(int baudRate)
 {
 }
-void Serial::println(const char *)
+
+bool Serial_T::available()
+{
+  return true;
+}
+
+char Serial_T::read()
+{
+  return ' ';
+}
+
+void Serial_T::println(const char *)
 {
 }
 
-struct Serial Serial;
+void Serial_T::flush()
+{
+}
+
+Serial_T & operator<<(Serial_T & s, int i)
+{
+  std::cout << i;
+  return s;
+}
+Serial_T & operator<<(Serial_T & s, unsigned int i)
+{
+  std::cout << i;
+  return s;
+}
+Serial_T & operator<<(Serial_T & s, long i)
+{
+  std::cout << i;
+  return s;
+}
+Serial_T & operator<<(Serial_T & s, unsigned long i)
+{
+  std::cout << i;
+  return s;
+}
+Serial_T & operator<<(Serial_T & s, const char * i)
+{
+  std::cout << i;
+  return s;
+}
+Serial_T & operator<<(Serial_T & s, const ENDL_T & e)
+{
+  std::cout << std::endl;
+  return s;
+}
+ENDL_T endl;
+Serial_T Serial;
+//template <typename T> T _HEX(T);
