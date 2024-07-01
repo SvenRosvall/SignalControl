@@ -10,13 +10,7 @@ include_directories(examples/Signal3AspectWithDistanceTimer)
 include_directories(examples/TwoIndependentSignal3Aspect)
 include_directories(examples/TwoSignal3AspectJoiningPoint)
 include_directories(src)
-#include_directories(src/withPrinting)
 include_directories(Arduino)
-#include_directories(test)
-
-#add_library(hardware_library OBJECT
-#        
-#)
 
 add_library(core_library OBJECT
         src/AndInput.h
@@ -43,19 +37,6 @@ add_library(core_library OBJECT
 set_target_properties(core_library PROPERTIES LINKER_LANGUAGE CXX)
 target_link_libraries(core_library PUBLIC)
 
-add_executable(SignalControl
-        $<TARGET_OBJECTS:core_library>
-        #$<TARGET_OBJECTS:hardware_library>
-
-        examples/Signal2AspectWithButton/Signal2AspectWithButton.ino
-        examples/Signal3AspectWithBlockDistanceInput/Signal3AspectWithBlockDistanceInput.ino
-        examples/Signal3AspectWithDistanceTimer/Signal3AspectWithDistanceTimer.ino
-        examples/TwoIndependentSignal3Aspect/TwoIndependentSignal3Aspect.ino
-        examples/TwoSignal3AspectJoiningPoint/TwoSignal3AspectJoiningPoint.ino
-        examples/signal.ino
-)
-set_target_properties(SignalControl PROPERTIES LINKER_LANGUAGE CXX)
-
 add_executable(testAll
         $<TARGET_OBJECTS:core_library>
         
@@ -64,12 +45,6 @@ add_executable(testAll
         test/ArduinoMock.hpp
         test/MockDistanceInput.h
         test/MockInput.h
-#        test/signal.ino.cpp
-#        test/sketchSignal2AspectWithButton.cpp
-#        test/sketchSignal3AspectWithBlockDistanceInput.cpp
-#        test/sketchSignal3AspectWithDistanceTimer.cpp
-#        test/sketchTwoIndependentSignal3Aspect.cpp
-#        test/sketchTwoSignal3AspectJoiningPoint.cpp
         test/testAll.cpp
         test/testAndInput.cpp
         test/testAndInput.h
@@ -111,3 +86,11 @@ add_executable(testAll
         test/testTemporaries.h
         test/TestTools.cpp
         test/TestTools.hpp)
+
+add_library(sketches OBJECT
+        test/sketchSignal2AspectWithButton.cpp
+        test/sketchSignal3AspectWithDistanceTimer.cpp
+        test/sketchSignal3AspectWithBlockDistanceInput.cpp
+        test/sketchTwoIndependentSignal3Aspect.cpp
+        test/sketchTwoSignal3AspectJoiningPoint.cpp
+)
