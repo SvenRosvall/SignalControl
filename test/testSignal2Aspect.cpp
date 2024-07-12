@@ -22,6 +22,10 @@ namespace
     SlowLight redLight(redPin, false);
     Signal2Aspect signal(DistanceTimer(triggerPin), greenLight, redLight);
 
+    assertEquals(PinMode::OUTPUT, getPinMode(greenPin));
+    assertEquals(PinMode::OUTPUT, getPinMode(redPin));
+    assertEquals(PinMode::INPUT_PULLUP, getPinMode(triggerPin));
+
     signal.update();
 
     assertEquals(255, getAnalogWrite(greenPin));
