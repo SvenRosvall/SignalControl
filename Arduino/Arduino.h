@@ -10,7 +10,7 @@
 typedef unsigned char byte;
 
 enum PinState {LOW = 0, HIGH = 1};
-enum PinMode {OUTPUT, INPUT, INPUT_PULLUP};
+enum PinMode {OUTPUT = 1, INPUT, INPUT_PULLUP}; // values start from 1 for testing.
 
 unsigned long millis();
 void delay(unsigned int);

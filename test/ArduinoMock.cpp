@@ -31,6 +31,12 @@ PinState getDigitalWrite(int pin)
         return digitalWrittenValues[pin];
 }
 
+std::map<int, PinMode> pinModeSettings;
+PinMode getPinMode(int pin)
+{
+  return pinModeSettings[pin];
+}
+
 unsigned long nextMillis;
 void addMillis(unsigned long newMillis)
 {
@@ -41,6 +47,7 @@ void clearArduinoValues()
 {
         digitalReadValues.clear();
         analogWrittenValues.clear();
+        pinModeSettings.clear();
         nextMillis = 0L;
 }
 
@@ -50,20 +57,25 @@ void analogWrite(int pin, int value)
 {
         analogWrittenValues[pin] = value;
 }
+
 int analogRead(int pin)
 {
         return analogReadValues[pin];
 }
+
 void digitalWrite(int pin, PinState value)
 {
 	digitalWrittenValues[pin] = value;
 }
+
 byte digitalRead(int pin)
 {
         return digitalReadValues[pin];
 }
+
 void pinMode(int pin, PinMode mode)
 {
+  pinModeSettings[pin] = mode;
 }
 
 unsigned long millis()

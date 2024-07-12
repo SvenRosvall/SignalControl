@@ -8,6 +8,15 @@
 
 const int inputPin = 3;
 
+void testPinInput_setup()
+{
+  test();
+  clearArduinoValues();
+  PinInput pinInput(inputPin);
+  
+  assertEquals(PinMode::INPUT_PULLUP, getPinMode(inputPin));
+}
+
 void testPinInput_HIGH()
 {
   test();
@@ -30,6 +39,7 @@ void testPinInput_LOW()
 
 void testPinInput()
 {
+  testPinInput_setup();
   testPinInput_HIGH();
   testPinInput_LOW();
 }

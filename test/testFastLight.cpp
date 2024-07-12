@@ -8,6 +8,15 @@
 
 const int greenPin = 2;
 
+void testFastLight_setup()
+{
+  test();
+  clearArduinoValues();
+  FastLight light(greenPin);
+
+  assertEquals(PinMode::OUTPUT, getPinMode(greenPin));
+}
+
 void testFastSignal_Off()
 {
   test();
@@ -46,6 +55,7 @@ void testFastSignal_On()
 
 void testFastLight()
 {
+  testFastLight_setup();
   testFastSignal_Off();
   testFastSignal_On();
 }

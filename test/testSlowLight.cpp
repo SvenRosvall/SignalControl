@@ -8,6 +8,15 @@
 
 const int greenPin = 2;
 
+void testSlowLight_setup()
+{
+  test();
+  clearArduinoValues();
+  SlowLight light(greenPin);
+
+  assertEquals(PinMode::OUTPUT, getPinMode(greenPin));
+}
+
 void testSlowSignal_Off_Start()
 {
   test();
@@ -103,6 +112,7 @@ void testSlowSignal_ChangeWhileChanging()
 
 void testSlowLight()
 {
+  testSlowLight_setup();
   testSlowSignal_Off_Start();
   testSlowSignal_Off_End();
   testSlowSignal_On_Start();
