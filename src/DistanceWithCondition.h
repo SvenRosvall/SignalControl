@@ -23,6 +23,12 @@ public:
   {
   }
 
+  virtual void begin() const override
+  {
+    distanceInput.begin();
+    stopInput->begin();
+  }
+
   virtual unsigned int freeBlocks() const
   {
     return stopInput->get()

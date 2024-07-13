@@ -21,6 +21,10 @@ public:
     , lightOn(lightOn)
     , timer(-transitionInterval)
   {
+  }
+
+  virtual void begin() override
+  {
     pinMode(lightPin, OUTPUT);
   }
 

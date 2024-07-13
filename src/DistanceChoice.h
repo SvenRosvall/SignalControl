@@ -24,6 +24,13 @@ public:
   {
   }
 
+  virtual void begin() const override
+  {
+    condition->begin();
+    route1.begin();
+    route2.begin();
+  }
+
   virtual unsigned int freeBlocks() const
   {
     return (condition->get() == false)

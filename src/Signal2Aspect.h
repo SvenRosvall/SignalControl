@@ -41,6 +41,13 @@ public:
   {
   }
 
+  void begin()
+  {
+    greenLight.begin();
+    redLight.begin();
+    input->begin();
+  }
+
   void update()
   {
     if (input->get())

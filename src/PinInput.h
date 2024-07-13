@@ -11,12 +11,16 @@ public:
   PinInput(int inputPin)
     : inputPin(inputPin)
   {
-    pinMode(inputPin, INPUT_PULLUP);
   }
 
   virtual PinInput * move_clone() const
   {
     return new PinInput(inputPin);
+  }
+
+  virtual void begin() const override
+  {
+    pinMode(inputPin, INPUT_PULLUP);
   }
 
   // Returns true if the input pin is active (low).

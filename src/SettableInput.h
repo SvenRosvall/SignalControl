@@ -18,6 +18,9 @@ public:
     return new SettableInput(state);
   }
 
+  virtual void begin() const override
+  {}
+
   virtual bool get() const
   {
     return state;

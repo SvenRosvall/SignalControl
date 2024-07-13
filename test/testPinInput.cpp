@@ -13,6 +13,7 @@ void testPinInput_setup()
   test();
   clearArduinoValues();
   PinInput pinInput(inputPin);
+  pinInput.begin();
   
   assertEquals(PinMode::INPUT_PULLUP, getPinMode(inputPin));
 }

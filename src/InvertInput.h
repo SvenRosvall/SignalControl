@@ -49,6 +49,11 @@ public:
     return new InvertInput(owning ? input->move_clone() : input, owning);
   }
 
+  virtual void begin() const override
+  {
+    input->begin();
+  }
+
   virtual bool get() const
   {
     return !input->get();

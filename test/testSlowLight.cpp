@@ -13,6 +13,7 @@ void testSlowLight_setup()
   test();
   clearArduinoValues();
   SlowLight light(greenPin);
+  light.begin();
 
   assertEquals(PinMode::OUTPUT, getPinMode(greenPin));
 }

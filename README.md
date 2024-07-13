@@ -29,7 +29,10 @@ This project includes a [Unit Test framework](test/README.md).
 You need to `#include` each class you will use.
 
 Objects are initialized when declared. 
-There is no need to set up the objects in the `setup()` function.
+The top level objects, such as signals, must be set up in the `setup()` function.
+by calling the `begin()` member function.
+`begin()` will do all setup required for the object and any objects it uses
+such as calling `pinMode()`.
 
 Collaborative multitasking is used to keep all the objects updated all
 the time.
@@ -59,7 +62,9 @@ SlowLight redLight(5);
 Signal2Aspect signal(button, greenLight, redLight);
 
 void setup()
-{}
+{
+  signal.begin();
+}
 
 void loop()
 {

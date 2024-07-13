@@ -57,6 +57,12 @@ public:
                         owning2 ? input2->move_clone() : input2, owning2);
   }
 
+  virtual void begin() const override
+  {
+    input1->begin();
+    input2->begin();
+  }
+
   virtual bool get() const
   {
     return input1->get() && input2->get();

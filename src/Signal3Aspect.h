@@ -20,6 +20,14 @@ public:
   {
   }
 
+  void begin()
+  {
+    greenLight.begin();
+    redLight.begin();
+    yellowLight.begin();
+    distanceInput.begin();
+  }
+
   void update()
   {
     switch (distanceInput.freeBlocks())

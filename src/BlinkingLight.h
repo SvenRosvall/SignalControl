@@ -27,6 +27,11 @@ public:
     this->lightOn = lightOn;
   }
 
+  virtual void begin() override
+  {
+    light.begin();
+  }
+
   void update()
   {
     if (lightOn && ((millis() / blinkingInterval) % 2) == 1)

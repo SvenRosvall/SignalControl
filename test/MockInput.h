@@ -12,6 +12,9 @@ public:
     return new MockInput(inputValue);
   }
 
+  virtual void begin() const override
+  {}
+
   void set(bool value)
   {
     this->inputValue = value;

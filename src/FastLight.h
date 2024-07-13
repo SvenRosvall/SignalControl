@@ -10,6 +10,10 @@ public:
     : lightPin(lightPin)
     , lightOn(lightOn)
   {
+  }
+
+  virtual void begin() override
+  {
     pinMode(lightPin, OUTPUT);
   }
 

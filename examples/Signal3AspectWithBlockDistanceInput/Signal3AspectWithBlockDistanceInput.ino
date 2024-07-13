@@ -12,7 +12,9 @@ SlowLight yellowLight(6);
 Signal3Aspect signal(distanceInput, greenLight, redLight, yellowLight);
 
 void setup()
-{}
+{
+  signal.begin();
+}
 
 void loop()
 {

@@ -18,6 +18,11 @@ public:
     return new DistanceToDigitalInput(input);
   }
 
+  virtual void begin() const override
+  {
+    input.begin();
+  }
+
   virtual bool get() const
   {
     return input.freeBlocks() > 0;

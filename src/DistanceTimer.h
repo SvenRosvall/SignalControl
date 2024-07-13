@@ -33,6 +33,11 @@ public:
   {
     this->timer = timer;
   }
+  
+  virtual void begin() const override
+  {
+    trigger.begin();
+  }
 
   void update()
   {

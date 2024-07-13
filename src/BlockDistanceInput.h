@@ -52,6 +52,12 @@ public:
   {
   }
 
+  virtual void begin() const override
+  {
+    blockTrigger->begin();
+    distanceBeyond->begin();
+  }
+
   void update()
   {
     freeBlockCount = findFreeBlocks();

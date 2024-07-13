@@ -22,6 +22,7 @@ void testInitialState()
   SlowLight redLight(redPin, false);
   SlowLight yellowLight(yellowPin, false);
   Signal3Aspect signal(distanceTimer, greenLight, redLight, yellowLight);
+  signal.begin();
 
   assertEquals(PinMode::OUTPUT, getPinMode(greenPin));
   assertEquals(PinMode::OUTPUT, getPinMode(redPin));

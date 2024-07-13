@@ -13,6 +13,10 @@ class MockLight : public Light
   bool isLightOn;
 
 public:
+  virtual void begin() override
+  {
+  }
+
   virtual void set(bool lightOn)
   {
     isLightOn = lightOn;
@@ -40,6 +44,7 @@ namespace
     MockLight yellowLight1;
     MockLight yellowLight2;
     Signal4Aspect signal(distanceInput, greenLight, redLight, yellowLight1, yellowLight2);
+    signal.begin();
 
     signal.update();
 

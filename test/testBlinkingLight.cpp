@@ -10,6 +10,9 @@ class MockLight : public Light
   bool lightOn;
 
 public:
+  virtual void begin() override
+  {}
+
   void set(bool lightOn)
   {
     this->lightOn = lightOn;
@@ -29,6 +32,7 @@ void testBlinkingSignal_Off_Start()
   clearArduinoValues();
   MockLight mockLight;
   BlinkingLight light(mockLight, false);
+  light.begin();
 
   // First, set it to ON and let it take effect
   light.set(true);
@@ -49,6 +53,7 @@ void testBlinkingSignal_Off_End()
   clearArduinoValues();
   MockLight mockLight;
   BlinkingLight light(mockLight, false);
+  light.begin();
   light.set(false);
   addMillis(defaultBlinkingInterval + 1);
 
@@ -63,6 +68,7 @@ void testBlinkingSignal_On_Start()
   clearArduinoValues();
   MockLight mockLight;
   BlinkingLight light(mockLight, false);
+  light.begin();
 
   // First, set it to OFF and let it take effect
   light.set(false);
@@ -82,6 +88,7 @@ void testBlinkingSignal_On_End()
   clearArduinoValues();
   MockLight mockLight;
   BlinkingLight light(mockLight, false);
+  light.begin();
   light.set(true);
   addMillis(defaultBlinkingInterval + 1);
 
@@ -96,6 +103,7 @@ void testBlinkingSignal_ChangeWhileChanging()
   clearArduinoValues();
   MockLight mockLight;
   BlinkingLight light(mockLight, false);
+  light.begin();
 
   // First, set it to OFF and let it take effect
   light.set(false);

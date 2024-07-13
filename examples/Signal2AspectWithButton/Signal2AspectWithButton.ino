@@ -9,7 +9,9 @@ SlowLight redLight(5);
 Signal2Aspect signal(button, greenLight, redLight);
 
 void setup()
-{}
+{
+  signal.begin();
+}
 
 void loop()
 {

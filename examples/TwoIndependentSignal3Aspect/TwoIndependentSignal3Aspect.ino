@@ -17,7 +17,10 @@ SlowLight yellowLight2(11);
 Signal3Aspect signal2(distanceTimer2, greenLight2, redLight2, yellowLight2);
 
 void setup() 
-{}
+{
+  signal1.begin();
+  signal2.begin();
+}
 
 void loop() 
 {

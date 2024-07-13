@@ -13,6 +13,7 @@ void testFastLight_setup()
   test();
   clearArduinoValues();
   FastLight light(greenPin);
+  light.begin();
 
   assertEquals(PinMode::OUTPUT, getPinMode(greenPin));
 }
