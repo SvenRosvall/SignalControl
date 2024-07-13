@@ -6,7 +6,7 @@ class FastLight : public Light
   bool lightOn;
 
 public:
-  FastLight(int lightPin, bool lightOn = false)
+  explicit FastLight(int lightPin, bool lightOn = false)
     : lightPin(lightPin)
     , lightOn(lightOn)
   {

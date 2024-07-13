@@ -9,7 +9,7 @@ class BlinkingLight : public Light
   long blinkingInterval;
 
 public:
-  BlinkingLight(Light & light, bool lightOn = false)
+  explicit BlinkingLight(Light & light, bool lightOn = false)
     : BlinkingLight(light, defaultBlinkingInterval, lightOn)
   {
   }

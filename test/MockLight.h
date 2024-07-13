@@ -23,7 +23,7 @@ public:
   {
   }
 
-  bool isLightOn()
+  bool isLightOn() const
   {
     return lightOn;
   }

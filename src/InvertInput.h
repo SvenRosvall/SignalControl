@@ -15,12 +15,12 @@ private:
   {
   }
 public:
-  InvertInput(const DigitalInput & input)
+  explicit InvertInput(const DigitalInput & input)
     : input(&input), owning(false)
   {
   }
 
-  InvertInput(const DigitalInput && input)
+  explicit InvertInput(const DigitalInput && input)
     : input(input.move_clone()), owning(true)
   {
   }

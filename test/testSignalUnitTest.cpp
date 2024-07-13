@@ -1,10 +1,7 @@
-#include "Arduino.hpp"
 #include "ArduinoMock.hpp"
 #include "TestTools.hpp"
 
 #include "Signal3Aspect.h"
-#include "DistanceInput.h"
-#include "Light.h"
 
 #include "MockDistanceInput.h"
 #include "MockLight.h"

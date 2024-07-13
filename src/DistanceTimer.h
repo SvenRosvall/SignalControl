@@ -15,14 +15,14 @@ class DistanceTimer : public DistanceInput
 
 public:
   // Convenience Constructor
-  DistanceTimer(int triggerPin)
+  explicit DistanceTimer(int triggerPin)
     // Note: Lifetime of PinInput object infinite.
     // This is OK as the DistanceTimer is usually never destroyed.
     : DistanceTimer(* new PinInput(triggerPin))
   {
   }
 
-  DistanceTimer(DigitalInput const & trigger)
+  explicit DistanceTimer(DigitalInput const & trigger)
     : trigger(trigger)
     , timer(0)
     , freeBlockCount(0)

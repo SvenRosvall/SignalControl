@@ -8,7 +8,7 @@ class SettableInput : public DigitalInput
   bool state;
 
 public:
-  SettableInput(bool state = false)
+  explicit SettableInput(bool state = false)
     : state(state)
   {
   }

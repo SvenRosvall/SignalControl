@@ -10,7 +10,7 @@ class SlowLight : public Light
   unsigned long timer;
 
 public:
-  SlowLight(int lightPin, bool lightOn = false)
+  explicit SlowLight(int lightPin, bool lightOn = false)
     : SlowLight(lightPin, defaultTransitionInterval, lightOn)
   {
   }

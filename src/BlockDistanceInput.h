@@ -19,7 +19,7 @@ public:
   {
   }
 
-  BlockDistanceInput(DigitalInput const & blockTrigger)
+  explicit BlockDistanceInput(DigitalInput const & blockTrigger)
     : blockTrigger(&blockTrigger)
     , distanceBeyond(nullptr)
     , freeBlockCount(0)
@@ -37,7 +37,7 @@ public:
   }
 
   // Convenience constructors for backwards compatibility. Takes input pins for track sensors.
-  BlockDistanceInput(int block1Pin)
+  explicit BlockDistanceInput(int block1Pin)
     : BlockDistanceInput(* new PinInput(block1Pin))
   {
   }
@@ -69,7 +69,7 @@ public:
   }
 
 private:
-  int findFreeBlocks()
+  unsigned int findFreeBlocks()
   {
     if (blockTrigger->get())
     {
@@ -78,7 +78,7 @@ private:
     else if (distanceBeyond != nullptr)
     {
       distanceBeyond->update();
-      int freeBlocksBeyond = distanceBeyond->freeBlocks();
+      unsigned int freeBlocksBeyond = distanceBeyond->freeBlocks();
       if (freeBlocksBeyond >= 99)
       {
         return 99;

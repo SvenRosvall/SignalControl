@@ -3,7 +3,7 @@ class MockInput : public DigitalInput
   bool inputValue;
 
 public:
-  MockInput(bool inputValue = false)
+  explicit MockInput(bool inputValue = false)
     : inputValue(inputValue)
   {}
 

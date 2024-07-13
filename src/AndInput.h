@@ -43,7 +43,7 @@ public:
   {
   }
 
-  ~AndInput()
+  virtual ~AndInput() override
   {
     if (owning1)
       delete input1;

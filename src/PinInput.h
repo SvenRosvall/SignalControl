@@ -8,7 +8,7 @@ class PinInput : public DigitalInput
   int inputPin;
 
 public:
-  PinInput(int inputPin)
+  explicit PinInput(int inputPin)
     : inputPin(inputPin)
   {
   }

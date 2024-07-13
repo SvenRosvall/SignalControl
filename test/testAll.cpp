@@ -47,7 +47,7 @@ std::map<std::string, void (*)()> suites = {
   {"Temporaries", testTemporaries}
 };
 
-int main(int argc, const char * const * argv)
+int main(int, const char * const * argv)
 {
   int totalFailures = 0;
   if (*++argv == nullptr)

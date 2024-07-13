@@ -9,7 +9,7 @@ class DistanceToDigitalInput : public DigitalInput
   const DistanceInput & input;
 
 public:
-  DistanceToDigitalInput(const DistanceInput & input)
+  explicit DistanceToDigitalInput(const DistanceInput & input)
     : input(input)
   {}
 

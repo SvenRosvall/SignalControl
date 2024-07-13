@@ -3,8 +3,6 @@
 #include "TestTools.hpp"
 
 #include "Signal4Aspect.h"
-#include "DistanceInput.h"
-#include "Light.h"
 
 #include "MockDistanceInput.h"
 #include "MockLight.h"
