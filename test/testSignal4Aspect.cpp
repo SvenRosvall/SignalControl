@@ -7,30 +7,7 @@
 #include "Light.h"
 
 #include "MockDistanceInput.h"
-
-class MockLight : public Light
-{
-  bool isLightOn;
-
-public:
-  virtual void begin() override
-  {
-  }
-
-  virtual void set(bool lightOn) override
-  {
-    isLightOn = lightOn;
-  }
-
-  virtual void update() override
-  {
-  }
-
-  bool getLight() const
-  {
-    return isLightOn;
-  }
-};
+#include "MockLight.h"
 
 namespace
 {
@@ -48,10 +25,10 @@ namespace
 
     signal.update();
 
-    assertEquals(false, greenLight.getLight());
-    assertEquals(true, redLight.getLight());
-    assertEquals(false, yellowLight1.getLight());
-    assertEquals(false, yellowLight2.getLight());
+    assertEquals(false, greenLight.isLightOn());
+    assertEquals(true, redLight.isLightOn());
+    assertEquals(false, yellowLight1.isLightOn());
+    assertEquals(false, yellowLight2.isLightOn());
   }
 
   void test1FreeBlocks()
@@ -67,10 +44,10 @@ namespace
 
     signal.update();
 
-    assertEquals(false, greenLight.getLight());
-    assertEquals(false, redLight.getLight());
-    assertEquals(true, yellowLight1.getLight());
-    assertEquals(false, yellowLight2.getLight());
+    assertEquals(false, greenLight.isLightOn());
+    assertEquals(false, redLight.isLightOn());
+    assertEquals(true, yellowLight1.isLightOn());
+    assertEquals(false, yellowLight2.isLightOn());
   }
 
   void test2FreeBlocks()
@@ -86,10 +63,10 @@ namespace
 
     signal.update();
 
-    assertEquals(false, greenLight.getLight());
-    assertEquals(false, redLight.getLight());
-    assertEquals(true, yellowLight1.getLight());
-    assertEquals(true, yellowLight2.getLight());
+    assertEquals(false, greenLight.isLightOn());
+    assertEquals(false, redLight.isLightOn());
+    assertEquals(true, yellowLight1.isLightOn());
+    assertEquals(true, yellowLight2.isLightOn());
   }
   
   void test3FreeBlocks()
@@ -105,10 +82,10 @@ namespace
 
     signal.update();
 
-    assertEquals(true, greenLight.getLight());
-    assertEquals(false, redLight.getLight());
-    assertEquals(false, yellowLight1.getLight());
-    assertEquals(false, yellowLight2.getLight());
+    assertEquals(true, greenLight.isLightOn());
+    assertEquals(false, redLight.isLightOn());
+    assertEquals(false, yellowLight1.isLightOn());
+    assertEquals(false, yellowLight2.isLightOn());
   }
 }
 

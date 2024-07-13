@@ -3,30 +3,9 @@
 #include "TestTools.hpp"
 
 #include "BlinkingLight.h"
+
+#include "MockLight.h"
 #include "testBlinkingLight.h"
-
-class MockLight : public Light
-{
-  bool lightOn;
-
-public:
-  virtual void begin() override
-  {}
-
-  virtual void set(bool lightOn) override
-  {
-    this->lightOn = lightOn;
-  }
-
-  virtual void update() override
-  {
-  }
-
-  bool isLightOn()
-  {
-    return lightOn;
-  }
-};
 
 void testBlinkingSignal_Off_Start()
 {
