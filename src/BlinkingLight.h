@@ -22,7 +22,7 @@ public:
     this->light.set(lightOn);
   }
 
-  void set(bool lightOn)
+  virtual void set(bool lightOn) override
   {
     this->lightOn = lightOn;
   }
@@ -32,7 +32,7 @@ public:
     light.begin();
   }
 
-  void update()
+  virtual void update() override
   {
     if (lightOn && ((millis() / blinkingInterval) % 2) == 1)
     {

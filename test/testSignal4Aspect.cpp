@@ -17,12 +17,12 @@ public:
   {
   }
 
-  virtual void set(bool lightOn)
+  virtual void set(bool lightOn) override
   {
     isLightOn = lightOn;
   }
 
-  virtual void update()
+  virtual void update() override
   {
   }
 

@@ -17,12 +17,12 @@ public:
     pinMode(lightPin, OUTPUT);
   }
 
-  void set(bool lightOn)
+  virtual void set(bool lightOn) override
   {
     this->lightOn = lightOn;
   }
 
-  void update()
+  virtual void update() override
   {
     digitalWrite(lightPin, lightOn ? HIGH : LOW);
   }

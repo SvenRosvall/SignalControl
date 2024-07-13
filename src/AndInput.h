@@ -51,7 +51,7 @@ public:
       delete input2;
   }
 
-  virtual AndInput * move_clone() const
+  virtual AndInput * move_clone() const override
   {
     return new AndInput(owning1 ? input1->move_clone() : input1, owning1,
                         owning2 ? input2->move_clone() : input2, owning2);
@@ -63,7 +63,7 @@ public:
     input2->begin();
   }
 
-  virtual bool get() const
+  virtual bool get() const override
   {
     return input1->get() && input2->get();
   }

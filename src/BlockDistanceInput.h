@@ -58,12 +58,12 @@ public:
     distanceBeyond->begin();
   }
 
-  void update()
+  virtual void update() override
   {
     freeBlockCount = findFreeBlocks();
   }
 
-  virtual unsigned int freeBlocks() const
+  virtual unsigned int freeBlocks() const override
   {
     return freeBlockCount;
   }

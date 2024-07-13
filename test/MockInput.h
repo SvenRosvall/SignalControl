@@ -7,7 +7,7 @@ public:
     : inputValue(inputValue)
   {}
 
-  virtual MockInput * move_clone() const
+  virtual MockInput * move_clone() const override
   {
     return new MockInput(inputValue);
   }
@@ -20,7 +20,7 @@ public:
     this->inputValue = value;
   }
 
-  virtual bool get() const
+  virtual bool get() const override
   {
     return inputValue;
   }

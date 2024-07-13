@@ -39,7 +39,7 @@ public:
     trigger.begin();
   }
 
-  void update()
+  virtual void update() override
   {
     if (trigger.get())
     {
@@ -48,7 +48,7 @@ public:
     freeBlockCount = (millis() - timer) / interval;
   }
 
-  virtual unsigned int freeBlocks() const
+  virtual unsigned int freeBlocks() const override
   {
     return freeBlockCount;
   }

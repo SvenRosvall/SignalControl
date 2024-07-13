@@ -28,7 +28,7 @@ public:
     pinMode(lightPin, OUTPUT);
   }
 
-  void set(bool lightOn)
+  virtual void set(bool lightOn) override
   {
     if (this->lightOn == lightOn)
     {
@@ -52,7 +52,7 @@ public:
     }
   }
 
-  void update()
+  virtual void update() override
   {
     unsigned long now = millis();
     int intensity;

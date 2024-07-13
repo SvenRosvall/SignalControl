@@ -13,7 +13,7 @@ public:
     : input(input)
   {}
 
-  virtual DistanceToDigitalInput * move_clone() const
+  virtual DistanceToDigitalInput * move_clone() const override
   {
     return new DistanceToDigitalInput(input);
   }
@@ -23,7 +23,7 @@ public:
     input.begin();
   }
 
-  virtual bool get() const
+  virtual bool get() const override
   {
     return input.freeBlocks() > 0;
   }

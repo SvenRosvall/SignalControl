@@ -13,7 +13,7 @@ public:
   {
   }
 
-  virtual SettableInput * move_clone() const
+  virtual SettableInput * move_clone() const override
   {
     return new SettableInput(state);
   }
@@ -21,7 +21,7 @@ public:
   virtual void begin() const override
   {}
 
-  virtual bool get() const
+  virtual bool get() const override
   {
     return state;
   }

@@ -13,7 +13,7 @@ public:
   {
   }
 
-  virtual PinInput * move_clone() const
+  virtual PinInput * move_clone() const override
   {
     return new PinInput(inputPin);
   }
@@ -24,7 +24,7 @@ public:
   }
 
   // Returns true if the input pin is active (low).
-  virtual bool get() const
+  virtual bool get() const override
   {
     return digitalRead(inputPin) == LOW;
   }

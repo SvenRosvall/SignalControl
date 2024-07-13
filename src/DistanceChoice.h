@@ -31,7 +31,7 @@ public:
     route2.begin();
   }
 
-  virtual unsigned int freeBlocks() const
+  virtual unsigned int freeBlocks() const override
   {
     return (condition->get() == false)
       ? route1.freeBlocks()  // Normal route

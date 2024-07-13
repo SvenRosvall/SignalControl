@@ -44,7 +44,7 @@ public:
       delete input;
   }
 
-  virtual InvertInput * move_clone() const
+  virtual InvertInput * move_clone() const override
   {
     return new InvertInput(owning ? input->move_clone() : input, owning);
   }
@@ -54,7 +54,7 @@ public:
     input->begin();
   }
 
-  virtual bool get() const
+  virtual bool get() const override
   {
     return !input->get();
   }

@@ -13,13 +13,15 @@ public:
   virtual void begin() override
   {}
 
-  void set(bool lightOn)
+  virtual void set(bool lightOn) override
   {
     this->lightOn = lightOn;
   }
-  void update()
+
+  virtual void update() override
   {
   }
+
   bool isLightOn()
   {
     return lightOn;

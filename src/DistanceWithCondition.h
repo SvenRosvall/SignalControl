@@ -29,7 +29,7 @@ public:
     stopInput->begin();
   }
 
-  virtual unsigned int freeBlocks() const
+  virtual unsigned int freeBlocks() const override
   {
     return stopInput->get()
       ? 0
