@@ -1,5 +1,11 @@
 # Release Notes
 
+## 2.0.0
+`pinMode()` shall be called only when running the `setup()` function.
+Changed objects to use a `begin()` method that must be called from `setup()`.
+
+As this is a breaking change the major release number is updated.
+
 ## 1.4.0
 Support for more complex topologies where signals may depend
 on routes through points/turnouts.
