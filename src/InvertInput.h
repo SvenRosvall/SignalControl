@@ -7,7 +7,7 @@
 class InvertInput : public DigitalInput
 {
   const DigitalInput * input;
-  bool owning;
+  const bool owning;
 
 private:
   InvertInput(const DigitalInput * input, bool owning)
@@ -33,7 +33,7 @@ public:
   {
   }
 
-  InvertInput(const InvertInput && input)
+  InvertInput(const InvertInput && input) noexcept
     : input(input.move_clone()), owning(true)
   {
   }

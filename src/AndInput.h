@@ -8,8 +8,8 @@ class AndInput : public DigitalInput
 {
   const DigitalInput * input1;
   const DigitalInput * input2;
-  bool owning1;
-  bool owning2;
+  const bool owning1;
+  const bool owning2;
 
 private:
   AndInput(const DigitalInput * input1, bool owning1,
