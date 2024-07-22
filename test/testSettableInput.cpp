@@ -4,56 +4,69 @@
 
 #include "SettableInput.h"
 #include "testSettableInput.h"
+#include "InvertInput.h"
 
-void testSettableInput_InitDefault()
+namespace
 {
-  test();
-  clearArduinoValues();
-  SettableInput settableInput;
-
-  assertEquals(false, settableInput.get());
-}
-
-void testSettableInput_InitFalse()
-{
-  test();
-  clearArduinoValues();
-  SettableInput settableInput(false);
-
-  assertEquals(false, settableInput.get());
-}
-
-void testSettableInput_InitTrue()
-{
-  test();
-  clearArduinoValues();
-  SettableInput settableInput(true);
-
-  assertEquals(true, settableInput.get());
-}
-
-void testSettableInput_FromFalse()
-{
-  test();
-  clearArduinoValues();
-  SettableInput settableInput;
-
-  settableInput.set(false);
-  assertEquals(false, settableInput.get());
-}
-
-void testSettableInput_FromTrue()
-{
-  test();
-  clearArduinoValues();
-  SettableInput settableInput;
-
-  settableInput.set(true);
-  assertEquals(true, settableInput.get());
+  void testSettableInput_Moved()
+  {
+    test();
+    InvertInput invertInput = InvertInput(SettableInput());
+    invertInput.begin();
+    // Only testing code coverage.
+  }
+  
+  void testSettableInput_InitDefault()
+  {
+    test();
+    SettableInput settableInput;
+    settableInput.begin();
+  
+    assertEquals(false, settableInput.get());
+  }
+  
+  void testSettableInput_InitFalse()
+  {
+    test();
+    SettableInput settableInput(false);
+    settableInput.begin();
+  
+    assertEquals(false, settableInput.get());
+  }
+  
+  void testSettableInput_InitTrue()
+  {
+    test();
+    SettableInput settableInput(true);
+    settableInput.begin();
+  
+    assertEquals(true, settableInput.get());
+  }
+  
+  void testSettableInput_FromFalse()
+  {
+    test();
+    SettableInput settableInput;
+    settableInput.begin();
+  
+    settableInput.set(false);
+    assertEquals(false, settableInput.get());
+  }
+  
+  void testSettableInput_FromTrue()
+  {
+    test();
+    SettableInput settableInput;
+    settableInput.begin();
+  
+    settableInput.set(true);
+    assertEquals(true, settableInput.get());
+  }
 }
 
 void testSettableInput()
 {
+  testSettableInput_Moved();
   testSettableInput_InitDefault();
   testSettableInput_InitFalse();
   testSettableInput_InitTrue();
