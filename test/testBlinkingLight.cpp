@@ -7,10 +7,19 @@
 #include "MockLight.h"
 #include "testBlinkingLight.h"
 
+void testBlinkingLight_Create()
+{
+  test();
+  MockLight mockLight;
+  BlinkingLight light(mockLight);
+  light.begin();
+
+  assertEquals(true, mockLight.wasBeginCalled());
+}
+
 void testBlinkingSignal_Off_Start()
 {
   test();
-  clearArduinoValues();
   MockLight mockLight;
   BlinkingLight light(mockLight, false);
   light.begin();
@@ -31,7 +40,6 @@ void testBlinkingSignal_Off_Start()
 void testBlinkingSignal_Off_End()
 {
   test();
-  clearArduinoValues();
   MockLight mockLight;
   BlinkingLight light(mockLight, false);
   light.begin();
@@ -46,7 +54,6 @@ void testBlinkingSignal_Off_End()
 void testBlinkingSignal_On_Start()
 {
   test();
-  clearArduinoValues();
   MockLight mockLight;
   BlinkingLight light(mockLight, false);
   light.begin();
@@ -66,7 +73,6 @@ void testBlinkingSignal_On_Start()
 void testBlinkingSignal_On_End()
 {
   test();
-  clearArduinoValues();
   MockLight mockLight;
   BlinkingLight light(mockLight, false);
   light.begin();
@@ -81,7 +87,6 @@ void testBlinkingSignal_On_End()
 void testBlinkingSignal_ChangeWhileChanging()
 {
   test();
-  clearArduinoValues();
   MockLight mockLight;
   BlinkingLight light(mockLight, false);
   light.begin();
@@ -105,6 +110,7 @@ void testBlinkingSignal_ChangeWhileChanging()
 
 void testBlinkingLight()
 {
+  testBlinkingLight_Create();
   testBlinkingSignal_Off_Start();
   testBlinkingSignal_Off_End();
   testBlinkingSignal_On_Start();

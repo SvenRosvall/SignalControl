@@ -8,11 +8,19 @@
 
 class MockLight : public Light
 {
-  bool lightOn;
+  bool lightOn = false;
+  mutable bool beginCalled = false;
 
 public:
   virtual void begin() override
-  {}
+  {
+    beginCalled = true;
+  }
+
+  bool wasBeginCalled() const
+  {
+    return beginCalled;
+  }
 
   virtual void set(bool lightOn) override
   {
