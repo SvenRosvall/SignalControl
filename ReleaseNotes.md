@@ -1,5 +1,8 @@
 # Release Notes
 
+## 2.1.0
+Add [TwoPinInput](Design.md#twopininput).
+
 ## 2.0.0
 `pinMode()` shall be called only when running the `setup()` function.
 Changed objects to use a `begin()` method that must be called from `setup()`.

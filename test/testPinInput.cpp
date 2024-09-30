@@ -6,7 +6,7 @@
 
 #include "testPinInput.h"
 
-const int inputPin = 3;
+static const int inputPin = 3;
 
 void testPinInput_setup()
 {
@@ -23,6 +23,7 @@ void testPinInput_HIGH()
   test();
   clearArduinoValues();
   PinInput pinInput(inputPin);
+  pinInput.begin();
 
   setDigitalRead(inputPin, HIGH);
   assertEquals(false, pinInput.get());
@@ -33,6 +34,7 @@ void testPinInput_LOW()
   test();
   clearArduinoValues();
   PinInput pinInput(inputPin);
+  pinInput.begin();
 
   setDigitalRead(inputPin, LOW);
   assertEquals(true, pinInput.get());

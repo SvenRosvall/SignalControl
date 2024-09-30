@@ -53,6 +53,17 @@ result is true if the pin is LOW.
 Input:
 * pin number : Pin to return the result for.
 
+### TwoPinInput
+The input state is controlled by two input pins.
+One for setting ON and one for OFF.
+This is useful for example using a push button for setting
+a signal to clear, and a train sensor to set the signal 
+to stop once the train passes over the sensor.
+
+Inputs:
+* on pin number: number of pin that sets this input to ON.
+* off pin number: number of pin that sets this input back to OFF.
+
 ### SettableInput
 Returns a state that can be set programmatically.
 
