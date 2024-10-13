@@ -142,6 +142,7 @@ The LED can be turned on or off.
 
 Inputs:
 * pin number - the pin the LED is connected to.
+* pin polarity (default COMMON_CATHODE) - should this pin be HIGH or LOW when the LED is on?
 * on (default false) - should this LED be on at startup?
 
 ### SlowLight
@@ -152,6 +153,7 @@ This implementation changes the LED slowly by using a PWM pin.
 
 Inputs:
 * pin number - the pin the LED is connected to.
+* pin polarity (default COMMON_CATHODE) - should this pin be HIGH(255) or LOW(0) when the LED is on?
 * transition interval (default 500 ms) - Determines how long 
   it takes for the light to change to on or off.
 * on (default false) - should this LED be on at startup?

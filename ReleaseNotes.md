@@ -1,5 +1,8 @@
 # Release Notes
 
+## 2.2.0
+Support signals that are wired with a common anode.
+
 ## 2.1.0
 Add [TwoPinInput](Design.md#twopininput).
 
