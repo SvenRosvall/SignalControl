@@ -111,6 +111,41 @@ void testSlowSignal_ChangeWhileChanging()
   assertEquals(0, getAnalogWrite(greenPin));
 }
 
+void testSlowSignal_CommonAnode()
+{
+  test();
+  clearArduinoValues();
+  SlowLight light(greenPin, COMMON_ANODE, false);
+
+  // First, set it to OFF and let it take effect
+  light.set(false);
+  addMillis(defaultTransitionInterval + 1);
+  light.update();
+  assertEquals(255, getAnalogWrite(greenPin));
+
+  // Then set to ON
+  light.set(true);
+  light.update();
+
+  // should not yet be lit up.
+  assertEquals(255, getAnalogWrite(greenPin));
+
+  addMillis(defaultTransitionInterval + 1);
+  light.update();
+  assertEquals(0, getAnalogWrite(greenPin));
+  
+  // Then set to OFF
+  light.set(false);
+  light.update();
+
+  // should not yet be turned off.
+  assertEquals(0, getAnalogWrite(greenPin));
+
+  addMillis(defaultTransitionInterval + 1);
+  light.update();
+  assertEquals(255, getAnalogWrite(greenPin));
+}
+
 void testSlowLight()
 {
   testSlowLight_setup();
@@ -119,4 +154,5 @@ void testSlowLight()
   testSlowSignal_On_Start();
   testSlowSignal_On_End();
   testSlowSignal_ChangeWhileChanging();
+  testSlowSignal_CommonAnode();
 }

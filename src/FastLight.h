@@ -12,6 +12,13 @@ public:
   {
   }
 
+  FastLight(int lightPin, CommonPolarity polarity, bool lightOn = false)
+    : Light(polarity)
+    , lightPin(lightPin)
+    , lightOn(lightOn)
+  {
+  }
+
   virtual void begin() override
   {
     pinMode(lightPin, OUTPUT);
@@ -24,6 +31,6 @@ public:
 
   virtual void update() override
   {
-    digitalWrite(lightPin, lightOn ? HIGH : LOW);
+    digitalWrite(lightPin, ((commonPolarity == COMMON_CATHODE) == lightOn) ? HIGH : LOW);
   }
 };

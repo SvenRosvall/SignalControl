@@ -11,12 +11,16 @@ class SlowLight : public Light
 
 public:
   explicit SlowLight(int lightPin, bool lightOn = false)
-    : SlowLight(lightPin, defaultTransitionInterval, lightOn)
-  {
-  }
+    : SlowLight(lightPin, defaultTransitionInterval, COMMON_CATHODE, lightOn)
+  {}
+  
+  SlowLight(int lightPin, CommonPolarity polarity, bool lightOn = false)
+    : SlowLight(lightPin, defaultTransitionInterval, polarity, lightOn)
+  {}
 
-  SlowLight(int lightPin, long transitionInterval, bool lightOn = false)
-    : lightPin(lightPin)
+  SlowLight(int lightPin, long transitionInterval, CommonPolarity polarity = COMMON_CATHODE, bool lightOn = false)
+    : Light(polarity)
+    , lightPin(lightPin)
     , transitionInterval(transitionInterval)
     , lightOn(lightOn)
     , timer(-transitionInterval)
@@ -58,9 +62,9 @@ public:
     int intensity;
     if (now > timer + transitionInterval)
     {
-      intensity = lightOn ? 255 : 0;
+      intensity = ((commonPolarity == COMMON_CATHODE) == lightOn) ? 255 : 0;
     }
-    else if (lightOn)
+    else if ((commonPolarity == COMMON_CATHODE) == lightOn)
     {
       intensity = map(now - timer, 0, transitionInterval, 0, 255);
     }

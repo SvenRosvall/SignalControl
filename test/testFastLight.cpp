@@ -54,9 +54,30 @@ void testFastSignal_On()
   assertEquals(HIGH, getDigitalWrite(greenPin));
 }
 
+void testFastLight_CommonAnode()
+{
+  test();
+  clearArduinoValues();
+  FastLight light(greenPin, COMMON_ANODE);
+
+
+  // First, set it to ON and let it take effect
+  light.set(true);
+  light.update();
+  assertEquals(LOW, getDigitalWrite(greenPin));
+
+  // Then set to OFF
+  light.set(false);
+  light.update();
+
+  //should be off.
+  assertEquals(HIGH, getDigitalWrite(greenPin));
+}
+
 void testFastLight()
 {
   testFastLight_setup();
   testFastSignal_Off();
   testFastSignal_On();
+  testFastLight_CommonAnode();
 }
