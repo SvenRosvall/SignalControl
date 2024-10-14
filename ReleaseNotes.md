@@ -1,6 +1,6 @@
 # Release Notes
 
-## In Progress
+## 2.3.0
 * Rename TwoBinInput to [BistableInput](Design.md#bistableinput) and allow any input type.
 * Add [OrInput](Design.md#orinput).
 
