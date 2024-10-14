@@ -26,6 +26,7 @@ add_library(core_library OBJECT
         src/InvertInput.h
         src/Light.h
         src/mv.h
+        src/OrInput.h
         src/PinInput.h
         src/SettableInput.h
         src/Signal2Aspect.h
@@ -69,6 +70,8 @@ add_executable(testAll
         test/testFastLight.h
         test/testInvertInput.cpp
         test/testInvertInput.h
+        test/testOrInput.cpp
+        test/testOrInput.h
         test/testPinInput.cpp
         test/testPinInput.h
         test/testSettableInput.cpp

@@ -31,7 +31,15 @@ The operator ! can also be used.
 Returns the "logical and" of two DigitalInput objects
 
 Input:
-* DigitalInput x 2 - The two objects to combile the result for as "logical and".
+* DigitalInput x 2 - The two objects to combine the result for as "logical and".
+
+The operator && can also be used.
+
+### OrInput
+Returns the "logical or" of two DigitalInput objects
+
+Input:
+* DigitalInput x 2 - The two objects to combine the result for as "logical or".
 
 The operator && can also be used.
 

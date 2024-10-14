@@ -1,7 +1,8 @@
 # Release Notes
 
 ## In Progress
-Rename TwoBinInput to [BistableInput](Design.md#bistableinput) and allow any input type.
+* Rename TwoBinInput to [BistableInput](Design.md#bistableinput) and allow any input type.
+* Add [OrInput](Design.md#orinput).
 
 ## 2.2.0
 Support signals that are wired with a common anode.

@@ -21,6 +21,7 @@
 #include "testPinInput.h"
 #include "testBistableInput.h"
 #include "testAndInput.h"
+#include "testOrInput.h"
 #include "testInvertInput.h"
 #include "testDistanceToDigitalInput.h"
 #include "testSettableInput.h"
@@ -43,6 +44,7 @@ std::map<std::string, void (*)()> suites = {
   {"PinInput", testPinInput},
   {"BistableInput", testBistableInput},
   {"AndInput", testAndInput},
+  {"OrInput", testOrInput},
   {"InvertInput", testInvertInput},
   {"DistanceToDigitalInput", testDistanceToDigitalInput},
   {"SettableInput", testSettableInput},
