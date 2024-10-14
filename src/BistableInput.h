@@ -35,7 +35,8 @@ public:
 
   virtual BistableInput * move_clone() const override
   {
-    return new BistableInput(onInput, owningOnInput, offInput, owningOffInput);
+    return new BistableInput(owningOnInput ? onInput->move_clone() : onInput, owningOnInput,
+                             owningOffInput ? offInput->move_clone() : offInput, owningOffInput);
   }
 
   virtual void begin() const override
