@@ -33,7 +33,7 @@ add_library(core_library OBJECT
         src/Signal4Aspect.h
         src/SignalFyrSken.h
         src/SlowLight.h
-        src/TwoPinInput.h
+        src/BistableInput.h
 )
 set_target_properties(core_library PROPERTIES LINKER_LANGUAGE CXX)
 target_link_libraries(core_library PUBLIC)
@@ -85,8 +85,8 @@ add_executable(testAll
         test/testSlowLight.h
         test/testTemporaries.cpp
         test/testTemporaries.h
-        test/testTwoPinInput.cpp
-        test/testTwoPinInput.h
+        test/testBistableInput.cpp
+        test/testBistableInput.h
         test/TestTools.cpp
         test/TestTools.hpp)
 

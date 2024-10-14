@@ -1,10 +1,13 @@
 # Release Notes
 
+## In Progress
+Rename TwoBinInput to [BistableInput](Design.md#bistableinput) and allow any input type.
+
 ## 2.2.0
 Support signals that are wired with a common anode.
 
 ## 2.1.0
-Add [TwoPinInput](Design.md#twopininput).
+Add TwoPinInput class.
 
 ## 2.0.0
 `pinMode()` shall be called only when running the `setup()` function.

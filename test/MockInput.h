@@ -1,3 +1,5 @@
+#include "DigitalInput.h"
+
 class MockInput : public DigitalInput
 {
   bool inputValue;
