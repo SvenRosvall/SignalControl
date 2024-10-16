@@ -24,13 +24,35 @@ public:
   BistableInput(const DigitalInput & onInput, const DigitalInput & offInput)
     : BistableInput(&onInput, false, &offInput, false)
   {
-
   }
-  
+
+  BistableInput(const DigitalInput && onInput, const DigitalInput & offInput)
+    : BistableInput(onInput.move_clone(), true, &offInput, false)
+  {
+  }
+
+  BistableInput(const DigitalInput & onInput, const DigitalInput && offInput)
+    : BistableInput(&onInput, false, offInput.move_clone(), true)
+  {
+  }
+
+  BistableInput(const DigitalInput && onInput, const DigitalInput && offInput)
+    : BistableInput(onInput.move_clone(), true, offInput.move_clone(), true)
+  {
+  }
+
   // Convenience ctor
   BistableInput(int onPin, int offPin)
     : BistableInput(new PinInput(onPin), true, new PinInput(offPin), true)
   {
+  }
+
+  virtual ~BistableInput() override
+  {
+    if (owningOnInput)
+      delete onInput;
+    if (owningOffInput)
+      delete offInput;
   }
 
   virtual BistableInput * move_clone() const override
