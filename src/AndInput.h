@@ -20,26 +20,22 @@ private:
 
 public:
   AndInput(const DigitalInput & input1, const DigitalInput & input2)
-    : input1(&input1), input2(&input2)
-    , owning1(false), owning2(false)
+    : AndInput(&input1, false, &input2, false)
   {
   }
 
   AndInput(const DigitalInput && input1, const DigitalInput & input2)
-    : input1(input1.move_clone()), input2(&input2)
-    , owning1(true), owning2(false)
+    : AndInput(input1.move_clone(), true, &input2, false)
   {
   }
 
   AndInput(const DigitalInput & input1, const DigitalInput && input2)
-    : input1(&input1), input2(input2.move_clone())
-    , owning1(false), owning2(true)
+    : AndInput(&input1, false, input2.move_clone(), true)
   {
   }
 
   AndInput(const DigitalInput && input1, const DigitalInput && input2)
-    : input1(input1.move_clone()), input2(input2.move_clone())
-    , owning1(true), owning2(true)
+    : AndInput(input1.move_clone(), true, input2.move_clone(), true)
   {
   }
 

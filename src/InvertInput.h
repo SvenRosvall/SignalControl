@@ -16,12 +16,12 @@ private:
   }
 public:
   explicit InvertInput(const DigitalInput & input)
-    : input(&input), owning(false)
+    : InvertInput(&input, false)
   {
   }
 
   explicit InvertInput(const DigitalInput && input)
-    : input(input.move_clone()), owning(true)
+    : InvertInput(input.move_clone(), true)
   {
   }
 
@@ -29,12 +29,12 @@ public:
   // Why isn't the ctors from DigitalInput enough?
   // And yet it doesn't work as it is elided.
   InvertInput(const InvertInput & input)
-    : input(&input), owning(false)
+    : InvertInput(&input, false)
   {
   }
 
   InvertInput(const InvertInput && input) noexcept
-    : input(input.move_clone()), owning(true)
+    : InvertInput(input.move_clone(), true)
   {
   }
 

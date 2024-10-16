@@ -19,26 +19,22 @@ private:
 
 public:
   OrInput(const DigitalInput & input1, const DigitalInput & input2)
-    : input1(&input1), input2(&input2)
-    , owning1(false), owning2(false)
+    : OrInput(&input1, false, &input2, false)
   {
   }
 
   OrInput(const DigitalInput && input1, const DigitalInput & input2)
-    : input1(input1.move_clone()), input2(&input2)
-    , owning1(true), owning2(false)
+    : OrInput(input1.move_clone(), true, &input2, false)
   {
   }
 
   OrInput(const DigitalInput & input1, const DigitalInput && input2)
-    : input1(&input1), input2(input2.move_clone())
-    , owning1(false), owning2(true)
+    : OrInput(&input1, false, input2.move_clone(), true)
   {
   }
 
   OrInput(const DigitalInput && input1, const DigitalInput && input2)
-    : input1(input1.move_clone()), input2(input2.move_clone())
-    , owning1(true), owning2(true)
+    : OrInput(input1.move_clone(), true, input2.move_clone(), true)
   {
   }
 
