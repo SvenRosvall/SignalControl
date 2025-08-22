@@ -62,3 +62,16 @@ There are some cases where a light needs to be able to show any of these three s
 * Swedish signalling uses a second green light that is fixed on for "go 40", and blinking 
   for "stop ahead".
 * British signalling also uses flashing yellow for diverging route ahead.
+
+## Better fading
+SlowLED fades linearly. 
+Arduino SIG discussed using cosine and logarithmic functions. 
+Tim Odlum suggested squared. 
+A square fade function is easy to calculate.
+
+Adjust how squared it is by changing `C` (range 0.0 - 1.0) in the formula:
+>```o = (1-C)*i + C*i^2```
+
+Here `o` and `i` are also in range 0.0 - 1.0. 
+
+Adjust formula for `int` range 0 - 255.
